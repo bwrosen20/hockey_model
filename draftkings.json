@@ -1,0 +1,4617 @@
+{
+    "sports": [
+      {
+        "id": "8",
+        "seoIdentifier": "Hockey",
+        "name": "Hockey",
+        "sortOrder": 58
+      }
+    ],
+    "leagues": [
+      {
+        "id": "42133",
+        "name": "NHL",
+        "sportId": "8",
+        "sortOrder": 4850,
+        "tags": [
+          "FeaturedSubcategory",
+          "MatchTracker",
+          "Scoreboard",
+          "Stats",
+          "PrePack",
+          "SGP",
+          "SgpDynamicOdds",
+          "YourBetEligible",
+          "Featured",
+          "HasLiveEvents",
+          "LiveFeaturedSubcategory",
+          "FavoriteableFromPage"
+        ],
+        "isTeamSwap": true,
+        "featured": true,
+        "media": [
+          {
+            "providerName": "BetRadarStats",
+            "mediaType": "Stats"
+          },
+          {
+            "providerName": "BetRadarV3",
+            "mediaType": "MatchTracker"
+          },
+          {
+            "providerName": "BetRadarV3",
+            "mediaType": "Scoreboard"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": "31197687",
+        "seoIdentifier": "PHI Flyers @ EDM Oilers",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "PHI Flyers @ EDM Oilers",
+        "startEventDate": "2024-10-16T02:10:00.0000000Z",
+        "participants": [
+          {
+            "id": "35730",
+            "name": "EDM Oilers",
+            "venueRole": "Home",
+            "type": "Team",
+            "metadata": {
+              "retailRotNumber": "417",
+              "rosettaTeamId": "35730",
+              "shortName": "EDM"
+            },
+            "sortOrder": 2
+          },
+          {
+            "id": "35773",
+            "name": "PHI Flyers",
+            "venueRole": "Away",
+            "type": "Team",
+            "metadata": {
+              "retailRotNumber": "416",
+              "rosettaTeamId": "35773",
+              "shortName": "PHI"
+            },
+            "sortOrder": 1
+          }
+        ],
+        "eventParticipantType": "TwoTeam",
+        "status": "NOT_STARTED",
+        "eventScorecard": {
+          "scorecardComponentId": 1
+        },
+        "media": [
+          {
+            "providerName": "BetRadarStats",
+            "providerEventId": "51245831",
+            "mediaType": "Stats"
+          },
+          {
+            "providerName": "BetRadarV3",
+            "providerEventId": "51245831",
+            "mediaType": "MatchTracker",
+            "metadata": {
+              "betRadarCoverage": "3"
+            }
+          },
+          {
+            "providerName": "BetRadarV3",
+            "providerEventId": "51245831",
+            "mediaType": "Scoreboard",
+            "metadata": {
+              "betRadarCoverage": "3"
+            }
+          }
+        ],
+        "tags": [
+          "FeaturedSubcategory",
+          "MatchTracker",
+          "PrePack",
+          "SGP",
+          "Scoreboard",
+          "SgpDynamicOdds",
+          "Stats",
+          "YourBetEligible"
+        ],
+        "metadata": {
+          "masterLeagueId": "459",
+          "numberOfParts": "3",
+          "secondsInOnePart": "1200"
+        },
+        "sortOrder": 252013087,
+        "subscriptionKey": "league-events-42133"
+      },
+      {
+        "id": "31202545",
+        "seoIdentifier": "BUF Sabres @ PIT Penguins",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "BUF Sabres @ PIT Penguins",
+        "startEventDate": "2024-10-16T23:00:00.0000000Z",
+        "participants": [
+          {
+            "id": "35775",
+            "name": "PIT Penguins",
+            "venueRole": "Home",
+            "type": "Team",
+            "metadata": {
+              "retailRotNumber": "419",
+              "rosettaTeamId": "35775",
+              "shortName": "PIT"
+            },
+            "sortOrder": 2
+          },
+          {
+            "id": "35705",
+            "name": "BUF Sabres",
+            "venueRole": "Away",
+            "type": "Team",
+            "metadata": {
+              "retailRotNumber": "418",
+              "rosettaTeamId": "35705",
+              "shortName": "BUF"
+            },
+            "sortOrder": 1
+          }
+        ],
+        "eventParticipantType": "TwoTeam",
+        "status": "NOT_STARTED",
+        "eventScorecard": {
+          "scorecardComponentId": 1
+        },
+        "media": [
+          {
+            "providerName": "BetRadarStats",
+            "providerEventId": "51245833",
+            "mediaType": "Stats"
+          },
+          {
+            "providerName": "BetRadarV3",
+            "providerEventId": "51245833",
+            "mediaType": "MatchTracker",
+            "metadata": {
+              "betRadarCoverage": "3"
+            }
+          },
+          {
+            "providerName": "BetRadarV3",
+            "providerEventId": "51245833",
+            "mediaType": "Scoreboard",
+            "metadata": {
+              "betRadarCoverage": "3"
+            }
+          }
+        ],
+        "tags": [
+          "FeaturedSubcategory",
+          "MatchTracker",
+          "PrePack",
+          "SGP",
+          "Scoreboard",
+          "SgpDynamicOdds",
+          "Stats",
+          "YourBetEligible"
+        ],
+        "metadata": {
+          "masterLeagueId": "459",
+          "numberOfParts": "3",
+          "secondsInOnePart": "1200"
+        },
+        "sortOrder": 252138045,
+        "subscriptionKey": "league-events-42133"
+      },
+      {
+        "id": "31202546",
+        "seoIdentifier": "LA Kings @ TOR Maple Leafs",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "LA Kings @ TOR Maple Leafs",
+        "startEventDate": "2024-10-16T23:30:00.0000000Z",
+        "participants": [
+          {
+            "id": "35786",
+            "name": "TOR Maple Leafs",
+            "venueRole": "Home",
+            "type": "Team",
+            "metadata": {
+              "retailRotNumber": "421",
+              "rosettaTeamId": "35786",
+              "shortName": "TOR"
+            },
+            "sortOrder": 2
+          },
+          {
+            "id": "35736",
+            "name": "LA Kings",
+            "venueRole": "Away",
+            "type": "Team",
+            "metadata": {
+              "retailRotNumber": "420",
+              "rosettaTeamId": "35736",
+              "shortName": "LA"
+            },
+            "sortOrder": 1
+          }
+        ],
+        "eventParticipantType": "TwoTeam",
+        "status": "NOT_STARTED",
+        "eventScorecard": {
+          "scorecardComponentId": 1
+        },
+        "media": [
+          {
+            "providerName": "BetRadarStats",
+            "providerEventId": "51245835",
+            "mediaType": "Stats"
+          },
+          {
+            "providerName": "BetRadarV3",
+            "providerEventId": "51245835",
+            "mediaType": "MatchTracker",
+            "metadata": {
+              "betRadarCoverage": "3"
+            }
+          },
+          {
+            "providerName": "BetRadarV3",
+            "providerEventId": "51245835",
+            "mediaType": "Scoreboard",
+            "metadata": {
+              "betRadarCoverage": "3"
+            }
+          }
+        ],
+        "tags": [
+          "FeaturedSubcategory",
+          "MatchTracker",
+          "PrePack",
+          "SGP",
+          "Scoreboard",
+          "SgpDynamicOdds",
+          "Stats",
+          "YourBetEligible"
+        ],
+        "metadata": {
+          "masterLeagueId": "459",
+          "numberOfParts": "3",
+          "secondsInOnePart": "1200"
+        },
+        "sortOrder": 252141046,
+        "subscriptionKey": "league-events-42133"
+      }
+    ],
+    "markets": [
+      {
+        "id": "217552655",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Joel Farabee Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002655,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:58972"
+      },
+      {
+        "id": "217552674",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Leon Draisaitl Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002674,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:55568"
+      },
+      {
+        "id": "217552678",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Morgan Frost Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002678,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:101069"
+      },
+      {
+        "id": "217552691",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Tyson Foerster Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002691,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:125993"
+      },
+      {
+        "id": "217552692",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Jeff Skinner Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002692,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:55517"
+      },
+      {
+        "id": "217552714",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Evan Bouchard Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002714,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:102592"
+      },
+      {
+        "id": "217552735",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Zach Hyman Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002735,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:58700"
+      },
+      {
+        "id": "217552743",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Mattias Ekholm Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002743,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:55608"
+      },
+      {
+        "id": "217552752",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Darnell Nurse Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002752,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:59162"
+      },
+      {
+        "id": "217552759",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Connor McDavid Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002759,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:55567"
+      },
+      {
+        "id": "217552764",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Owen Tippett Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002764,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:101171"
+      },
+      {
+        "id": "217552771",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Travis Konecny Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002771,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:55639"
+      },
+      {
+        "id": "217552786",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Ryan Nugent-Hopkins Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002786,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:55570"
+      },
+      {
+        "id": "217552801",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Viktor Arvidsson Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002801,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:55602"
+      },
+      {
+        "id": "217552817",
+        "eventId": "31197687",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Matvei Michkov Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 87002817,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31197687|12422|2:148584"
+      },
+      {
+        "id": "217658365",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Rasmus Dahlin Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002365,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:55518"
+      },
+      {
+        "id": "217658372",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Jack Quinn Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002372,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:126041"
+      },
+      {
+        "id": "217658375",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Evgeni Malkin Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002375,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:55644"
+      },
+      {
+        "id": "217658380",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Anthony Beauvillier Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002380,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:55621"
+      },
+      {
+        "id": "217658381",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Drew O'Connor Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002381,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:117250"
+      },
+      {
+        "id": "217658386",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Erik Karlsson Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002386,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:55656"
+      },
+      {
+        "id": "217658392",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Kris Letang Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002392,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:55649"
+      },
+      {
+        "id": "217658400",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Sidney Crosby Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002400,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:55643"
+      },
+      {
+        "id": "217658405",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Owen Power Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002405,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:149191"
+      },
+      {
+        "id": "217658416",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Dylan Cozens Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002416,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:100992"
+      },
+      {
+        "id": "217658419",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Michael Bunting Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002419,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:104861"
+      },
+      {
+        "id": "217658426",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Bryan Rust Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002426,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:58735"
+      },
+      {
+        "id": "217658435",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Alex Tuch Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002435,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:59230"
+      },
+      {
+        "id": "217658442",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Tage Thompson Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002442,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:58816"
+      },
+      {
+        "id": "217658445",
+        "eventId": "31202545",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Rickard Rakell Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 45002445,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202545|12422|2:55501"
+      },
+      {
+        "id": "217659327",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "John Tavares Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002327,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:55678"
+      },
+      {
+        "id": "217659332",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Bobby McMann Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002332,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:157161"
+      },
+      {
+        "id": "217659334",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Mitchell Marner Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002334,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:55677"
+      },
+      {
+        "id": "217659344",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Alex Laferriere Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002344,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:161758"
+      },
+      {
+        "id": "217659352",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Trevor Moore Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002352,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:59206"
+      },
+      {
+        "id": "217659354",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Max Domi Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002354,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:55596"
+      },
+      {
+        "id": "217659356",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Quinton Byfield Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002356,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:120208"
+      },
+      {
+        "id": "217659373",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Kevin Fiala Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002373,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:55589"
+      },
+      {
+        "id": "217659382",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Phillip Danault Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002382,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:55598"
+      },
+      {
+        "id": "217659384",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Morgan Rielly Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002384,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:55682"
+      },
+      {
+        "id": "217659385",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Warren Foegele Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002385,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:58706"
+      },
+      {
+        "id": "217659388",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Auston Matthews Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002388,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:55676"
+      },
+      {
+        "id": "217659401",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Anze Kopitar Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002401,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:55580"
+      },
+      {
+        "id": "217659406",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Adrian Kempe Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002406,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:59168"
+      },
+      {
+        "id": "217659414",
+        "eventId": "31202546",
+        "sportId": "8",
+        "leagueId": "42133",
+        "name": "Matthew Knies Shots on Goal",
+        "subcategoryId": 12040,
+        "marketType": {
+          "id": "12422",
+          "betOfferTypeId": 0,
+          "name": "Player Shots on Goal O/U"
+        },
+        "subscriptionKey": "league-events-42133",
+        "sortOrder": 46002414,
+        "tags": [
+          "SGP",
+          "YourBetEligible",
+          "Cashout",
+          "FeaturedSubcategory",
+          "IgnoreSortOrderOnPush",
+          "MicroMarketDelayRemoval",
+          "PlayerProps"
+        ],
+        "correlatedId": "31202546|12422|2:149241"
+      }
+    ],
+    "selections": [
+      {
+        "id": "0QA217552655#64983319_13L42133Q1-568193998Q20",
+        "marketId": "217552655",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−135",
+          "decimal": "1.74",
+          "fractional": "20/27"
+        },
+        "trueOdds": 1.74074075,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35907",
+            "name": "Joel Farabee",
+            "type": "Player",
+            "seoIdentifier": "Joel Farabee"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552691#65245375_13L42133Q1-568193998Q20",
+        "marketId": "217552691",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−195",
+          "decimal": "1.51",
+          "fractional": "20/39"
+        },
+        "trueOdds": 1.51282052,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "527778",
+            "name": "Tyson Foerster",
+            "type": "Player",
+            "seoIdentifier": "Tyson Foerster"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552752#64983526_13L42133Q1-568193998Q20",
+        "marketId": "217552752",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−140",
+          "decimal": "1.71",
+          "fractional": "5/7"
+        },
+        "trueOdds": 1.71428572,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34664",
+            "name": "Darnell Nurse",
+            "type": "Player",
+            "seoIdentifier": "Darnell Nurse"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552786#64983608_13L42133Q1-568193998Q20",
+        "marketId": "217552786",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−166",
+          "decimal": "1.60",
+          "fractional": "50/83"
+        },
+        "trueOdds": 1.60240964,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34661",
+            "name": "Ryan Nugent-Hopkins",
+            "type": "Player",
+            "seoIdentifier": "Ryan Nugent-Hopkins"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658372#65415625_13L42133Q1-568193998Q20",
+        "marketId": "217658372",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−166",
+          "decimal": "1.60",
+          "fractional": "50/83"
+        },
+        "trueOdds": 1.60240964,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "518137",
+            "name": "Jack Quinn",
+            "type": "Player",
+            "seoIdentifier": "Jack Quinn"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658405#65415720_13L42133Q1-568193998Q20",
+        "marketId": "217658405",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+190",
+          "decimal": "2.90",
+          "fractional": "19/10"
+        },
+        "trueOdds": 2.9,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "638979",
+            "name": "Owen Power",
+            "type": "Player",
+            "seoIdentifier": "Owen Power"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658392#65415678_13L42133Q1-568193998Q20",
+        "marketId": "217658392",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−175",
+          "decimal": "1.57",
+          "fractional": "4/7"
+        },
+        "trueOdds": 1.57142858,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34642",
+            "name": "Kris Letang",
+            "type": "Player",
+            "seoIdentifier": "Kris Letang"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658381#65415676_13L42133Q1-568193998Q20",
+        "marketId": "217658381",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−145",
+          "decimal": "1.68",
+          "fractional": "20/29"
+        },
+        "trueOdds": 1.68965518,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "479168",
+            "name": "Drew O'Connor",
+            "type": "Player",
+            "seoIdentifier": "Drew O'Connor"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658380#65415650_13L42133Q1-568193998Q20",
+        "marketId": "217658380",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−154",
+          "decimal": "1.64",
+          "fractional": "50/77"
+        },
+        "trueOdds": 1.64935065,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35515",
+            "name": "Anthony Beauvillier",
+            "type": "Player",
+            "seoIdentifier": "Anthony Beauvillier"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659354#65418738_13L42133Q1-568193998Q20",
+        "marketId": "217659354",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−175",
+          "decimal": "1.57",
+          "fractional": "4/7"
+        },
+        "trueOdds": 1.57142858,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35163",
+            "name": "Max Domi",
+            "type": "Player",
+            "seoIdentifier": "Max Domi"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659332#65418676_13L42133Q1-568193998Q20",
+        "marketId": "217659332",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−188",
+          "decimal": "1.53",
+          "fractional": "25/47"
+        },
+        "trueOdds": 1.5319149,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "640823",
+            "name": "Bobby McMann",
+            "type": "Player",
+            "seoIdentifier": "Bobby McMann"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659382#65418805_13L42133Q1-568193998Q20",
+        "marketId": "217659382",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−166",
+          "decimal": "1.60",
+          "fractional": "50/83"
+        },
+        "trueOdds": 1.60240964,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35160",
+            "name": "Phillip Danault",
+            "type": "Player",
+            "seoIdentifier": "Phillip Danault"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659401#65418853_13L42133Q1-568193998Q20",
+        "marketId": "217659401",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−130",
+          "decimal": "1.76",
+          "fractional": "10/13"
+        },
+        "trueOdds": 1.76923077,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34921",
+            "name": "Anze Kopitar",
+            "type": "Player",
+            "seoIdentifier": "Anze Kopitar"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659356#65418741_13L42133Q1-568193998Q20",
+        "marketId": "217659356",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−200",
+          "decimal": "1.50",
+          "fractional": "1/2"
+        },
+        "trueOdds": 1.5,
+        "points": 1.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "518131",
+            "name": "Quinton Byfield",
+            "type": "Player",
+            "seoIdentifier": "Quinton Byfield"
+          }
+        ],
+        "sortOrder": 1500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552655#64983321_15L42133Q1-1244548659Q20",
+        "marketId": "217552655",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+105",
+          "decimal": "2.05",
+          "fractional": "21/20"
+        },
+        "trueOdds": 2.05,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35907",
+            "name": "Joel Farabee",
+            "type": "Player",
+            "seoIdentifier": "Joel Farabee"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552691#65245376_15L42133Q1-1244548659Q20",
+        "marketId": "217552691",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+150",
+          "decimal": "2.50",
+          "fractional": "6/4"
+        },
+        "trueOdds": 2.5,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "527778",
+            "name": "Tyson Foerster",
+            "type": "Player",
+            "seoIdentifier": "Tyson Foerster"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552752#64983527_15L42133Q1-1244548659Q20",
+        "marketId": "217552752",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+110",
+          "decimal": "2.10",
+          "fractional": "11/10"
+        },
+        "trueOdds": 2.1,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34664",
+            "name": "Darnell Nurse",
+            "type": "Player",
+            "seoIdentifier": "Darnell Nurse"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552786#64983609_15L42133Q1-1244548659Q20",
+        "marketId": "217552786",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+130",
+          "decimal": "2.30",
+          "fractional": "13/10"
+        },
+        "trueOdds": 2.3,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34661",
+            "name": "Ryan Nugent-Hopkins",
+            "type": "Player",
+            "seoIdentifier": "Ryan Nugent-Hopkins"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658372#65415626_15L42133Q1-1244548659Q20",
+        "marketId": "217658372",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+130",
+          "decimal": "2.30",
+          "fractional": "13/10"
+        },
+        "trueOdds": 2.3,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "518137",
+            "name": "Jack Quinn",
+            "type": "Player",
+            "seoIdentifier": "Jack Quinn"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658405#65415721_15L42133Q1-1244548659Q20",
+        "marketId": "217658405",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−250",
+          "decimal": "1.40",
+          "fractional": "2/5"
+        },
+        "trueOdds": 1.4,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "638979",
+            "name": "Owen Power",
+            "type": "Player",
+            "seoIdentifier": "Owen Power"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658392#65415679_15L42133Q1-1244548659Q20",
+        "marketId": "217658392",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+135",
+          "decimal": "2.35",
+          "fractional": "27/20"
+        },
+        "trueOdds": 2.35,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34642",
+            "name": "Kris Letang",
+            "type": "Player",
+            "seoIdentifier": "Kris Letang"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658381#65415677_15L42133Q1-1244548659Q20",
+        "marketId": "217658381",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+114",
+          "decimal": "2.14",
+          "fractional": "57/50"
+        },
+        "trueOdds": 2.14,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "479168",
+            "name": "Drew O'Connor",
+            "type": "Player",
+            "seoIdentifier": "Drew O'Connor"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658380#65415651_15L42133Q1-1244548659Q20",
+        "marketId": "217658380",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+120",
+          "decimal": "2.20",
+          "fractional": "6/5"
+        },
+        "trueOdds": 2.2,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35515",
+            "name": "Anthony Beauvillier",
+            "type": "Player",
+            "seoIdentifier": "Anthony Beauvillier"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659354#65418739_15L42133Q1-1244548659Q20",
+        "marketId": "217659354",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+135",
+          "decimal": "2.35",
+          "fractional": "27/20"
+        },
+        "trueOdds": 2.35,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35163",
+            "name": "Max Domi",
+            "type": "Player",
+            "seoIdentifier": "Max Domi"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659332#65418677_15L42133Q1-1244548659Q20",
+        "marketId": "217659332",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+145",
+          "decimal": "2.45",
+          "fractional": "29/20"
+        },
+        "trueOdds": 2.45,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "640823",
+            "name": "Bobby McMann",
+            "type": "Player",
+            "seoIdentifier": "Bobby McMann"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659382#65418806_15L42133Q1-1244548659Q20",
+        "marketId": "217659382",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+130",
+          "decimal": "2.30",
+          "fractional": "13/10"
+        },
+        "trueOdds": 2.3,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35160",
+            "name": "Phillip Danault",
+            "type": "Player",
+            "seoIdentifier": "Phillip Danault"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659401#65418854_15L42133Q1-1244548659Q20",
+        "marketId": "217659401",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+100",
+          "decimal": "2.00",
+          "fractional": "1/1"
+        },
+        "trueOdds": 2,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34921",
+            "name": "Anze Kopitar",
+            "type": "Player",
+            "seoIdentifier": "Anze Kopitar"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659356#65418742_15L42133Q1-1244548659Q20",
+        "marketId": "217659356",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+154",
+          "decimal": "2.54",
+          "fractional": "77/50"
+        },
+        "trueOdds": 2.54,
+        "points": 1.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "518131",
+            "name": "Quinton Byfield",
+            "type": "Player",
+            "seoIdentifier": "Quinton Byfield"
+          }
+        ],
+        "sortOrder": 1502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552743#65419924_13L42133Q11842131994Q20",
+        "marketId": "217552743",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+150",
+          "decimal": "2.50",
+          "fractional": "6/4"
+        },
+        "trueOdds": 2.5,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35271",
+            "name": "Mattias Ekholm",
+            "type": "Player",
+            "seoIdentifier": "Mattias Ekholm"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552714#64983445_13L42133Q11842131994Q20",
+        "marketId": "217552714",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−125",
+          "decimal": "1.80",
+          "fractional": "4/5"
+        },
+        "trueOdds": 1.8,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35916",
+            "name": "Evan Bouchard",
+            "type": "Player",
+            "seoIdentifier": "Evan Bouchard"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552801#64983638_13L42133Q11842131994Q20",
+        "marketId": "217552801",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−105",
+          "decimal": "1.95",
+          "fractional": "20/21"
+        },
+        "trueOdds": 1.95238096,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35243",
+            "name": "Viktor Arvidsson",
+            "type": "Player",
+            "seoIdentifier": "Viktor Arvidsson"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552674#64983356_13L42133Q11842131994Q20",
+        "marketId": "217552674",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+105",
+          "decimal": "2.05",
+          "fractional": "21/20"
+        },
+        "trueOdds": 2.05,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35930",
+            "name": "Leon Draisaitl",
+            "type": "Player",
+            "seoIdentifier": "Leon Draisaitl"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552692#64983393_13L42133Q11842131994Q20",
+        "marketId": "217552692",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+105",
+          "decimal": "2.05",
+          "fractional": "21/20"
+        },
+        "trueOdds": 2.05,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34962",
+            "name": "Jeff Skinner",
+            "type": "Player",
+            "seoIdentifier": "Jeff Skinner"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552817#64983677_13L42133Q11842131994Q20",
+        "marketId": "217552817",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+114",
+          "decimal": "2.14",
+          "fractional": "57/50"
+        },
+        "trueOdds": 2.14,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "801814",
+            "name": "Matvei Michkov",
+            "type": "Player",
+            "seoIdentifier": "Matvei Michkov"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552771#64983577_13L42133Q11842131994Q20",
+        "marketId": "217552771",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−180",
+          "decimal": "1.55",
+          "fractional": "5/9"
+        },
+        "trueOdds": 1.55555556,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35931",
+            "name": "Travis Konecny",
+            "type": "Player",
+            "seoIdentifier": "Travis Konecny"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552678#64983369_13L42133Q11842131994Q20",
+        "marketId": "217552678",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+154",
+          "decimal": "2.54",
+          "fractional": "77/50"
+        },
+        "trueOdds": 2.54,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35913",
+            "name": "Morgan Frost",
+            "type": "Player",
+            "seoIdentifier": "Morgan Frost"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658435#65415792_13L42133Q11842131994Q20",
+        "marketId": "217658435",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−120",
+          "decimal": "1.83",
+          "fractional": "5/6"
+        },
+        "trueOdds": 1.83333334,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35508",
+            "name": "Alex Tuch",
+            "type": "Player",
+            "seoIdentifier": "Alex Tuch"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658365#65415605_13L42133Q11842131994Q20",
+        "marketId": "217658365",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−105",
+          "decimal": "1.95",
+          "fractional": "20/21"
+        },
+        "trueOdds": 1.95238096,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34864",
+            "name": "Rasmus Dahlin",
+            "type": "Player",
+            "seoIdentifier": "Rasmus Dahlin"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658445#65415820_13L42133Q11842131994Q20",
+        "marketId": "217658445",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+130",
+          "decimal": "2.30",
+          "fractional": "13/10"
+        },
+        "trueOdds": 2.3,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34581",
+            "name": "Rickard Rakell",
+            "type": "Player",
+            "seoIdentifier": "Rickard Rakell"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658419#65415749_13L42133Q11842131994Q20",
+        "marketId": "217658419",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+154",
+          "decimal": "2.54",
+          "fractional": "77/50"
+        },
+        "trueOdds": 2.54,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34598",
+            "name": "Michael Bunting",
+            "type": "Player",
+            "seoIdentifier": "Michael Bunting"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658416#65415742_13L42133Q11842131994Q20",
+        "marketId": "217658416",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−105",
+          "decimal": "1.95",
+          "fractional": "20/21"
+        },
+        "trueOdds": 1.95238096,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34861",
+            "name": "Dylan Cozens",
+            "type": "Player",
+            "seoIdentifier": "Dylan Cozens"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658375#65415637_13L42133Q11842131994Q20",
+        "marketId": "217658375",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+110",
+          "decimal": "2.10",
+          "fractional": "11/10"
+        },
+        "trueOdds": 2.1,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34648",
+            "name": "Evgeni Malkin",
+            "type": "Player",
+            "seoIdentifier": "Evgeni Malkin"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658386#65415661_13L42133Q11842131994Q20",
+        "marketId": "217658386",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−105",
+          "decimal": "1.95",
+          "fractional": "20/21"
+        },
+        "trueOdds": 1.95238096,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34773",
+            "name": "Erik Karlsson",
+            "type": "Player",
+            "seoIdentifier": "Erik Karlsson"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659344#65418711_13L42133Q11842131994Q20",
+        "marketId": "217659344",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+100",
+          "decimal": "2.00",
+          "fractional": "1/1"
+        },
+        "trueOdds": 2,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "704929",
+            "name": "Alex Laferriere",
+            "type": "Player",
+            "seoIdentifier": "Alex Laferriere"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659384#65418820_13L42133Q11842131994Q20",
+        "marketId": "217659384",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+150",
+          "decimal": "2.50",
+          "fractional": "6/4"
+        },
+        "trueOdds": 2.5,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35258",
+            "name": "Morgan Rielly",
+            "type": "Player",
+            "seoIdentifier": "Morgan Rielly"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659414#65418894_13L42133Q11842131994Q20",
+        "marketId": "217659414",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+145",
+          "decimal": "2.45",
+          "fractional": "29/20"
+        },
+        "trueOdds": 2.45,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "704930",
+            "name": "Matthew Knies",
+            "type": "Player",
+            "seoIdentifier": "Matthew Knies"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659352#65418730_13L42133Q11842131994Q20",
+        "marketId": "217659352",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−154",
+          "decimal": "1.64",
+          "fractional": "50/77"
+        },
+        "trueOdds": 1.64935065,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35244",
+            "name": "Trevor Moore",
+            "type": "Player",
+            "seoIdentifier": "Trevor Moore"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659385#65418812_13L42133Q11842131994Q20",
+        "marketId": "217659385",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+150",
+          "decimal": "2.50",
+          "fractional": "6/4"
+        },
+        "trueOdds": 2.5,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35135",
+            "name": "Warren Foegele",
+            "type": "Player",
+            "seoIdentifier": "Warren Foegele"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659373#65418780_13L42133Q11842131994Q20",
+        "marketId": "217659373",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−160",
+          "decimal": "1.62",
+          "fractional": "5/8"
+        },
+        "trueOdds": 1.625,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35040",
+            "name": "Kevin Fiala",
+            "type": "Player",
+            "seoIdentifier": "Kevin Fiala"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659334#65418684_13L42133Q11842131994Q20",
+        "marketId": "217659334",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+100",
+          "decimal": "2.00",
+          "fractional": "1/1"
+        },
+        "trueOdds": 2,
+        "points": 2.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35235",
+            "name": "Mitchell Marner",
+            "type": "Player",
+            "seoIdentifier": "Mitchell Marner"
+          }
+        ],
+        "sortOrder": 2500,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552743#65419925_15L42133Q1-1930559442Q20",
+        "marketId": "217552743",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−195",
+          "decimal": "1.51",
+          "fractional": "20/39"
+        },
+        "trueOdds": 1.51282052,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35271",
+            "name": "Mattias Ekholm",
+            "type": "Player",
+            "seoIdentifier": "Mattias Ekholm"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552714#64983446_15L42133Q1-1930559442Q20",
+        "marketId": "217552714",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−105",
+          "decimal": "1.95",
+          "fractional": "20/21"
+        },
+        "trueOdds": 1.95238096,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35916",
+            "name": "Evan Bouchard",
+            "type": "Player",
+            "seoIdentifier": "Evan Bouchard"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552801#64983639_15L42133Q1-1930559442Q20",
+        "marketId": "217552801",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−125",
+          "decimal": "1.80",
+          "fractional": "4/5"
+        },
+        "trueOdds": 1.8,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35243",
+            "name": "Viktor Arvidsson",
+            "type": "Player",
+            "seoIdentifier": "Viktor Arvidsson"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552674#64983357_15L42133Q1-1930559442Q20",
+        "marketId": "217552674",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−135",
+          "decimal": "1.74",
+          "fractional": "20/27"
+        },
+        "trueOdds": 1.74074075,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35930",
+            "name": "Leon Draisaitl",
+            "type": "Player",
+            "seoIdentifier": "Leon Draisaitl"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552692#64983394_15L42133Q1-1930559442Q20",
+        "marketId": "217552692",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−135",
+          "decimal": "1.74",
+          "fractional": "20/27"
+        },
+        "trueOdds": 1.74074075,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34962",
+            "name": "Jeff Skinner",
+            "type": "Player",
+            "seoIdentifier": "Jeff Skinner"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552817#64983679_15L42133Q1-1930559442Q20",
+        "marketId": "217552817",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−145",
+          "decimal": "1.68",
+          "fractional": "20/29"
+        },
+        "trueOdds": 1.68965518,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "801814",
+            "name": "Matvei Michkov",
+            "type": "Player",
+            "seoIdentifier": "Matvei Michkov"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552771#64983578_15L42133Q1-1930559442Q20",
+        "marketId": "217552771",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+140",
+          "decimal": "2.40",
+          "fractional": "7/5"
+        },
+        "trueOdds": 2.4,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35931",
+            "name": "Travis Konecny",
+            "type": "Player",
+            "seoIdentifier": "Travis Konecny"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552678#64983370_15L42133Q1-1930559442Q20",
+        "marketId": "217552678",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−200",
+          "decimal": "1.50",
+          "fractional": "1/2"
+        },
+        "trueOdds": 1.5,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35913",
+            "name": "Morgan Frost",
+            "type": "Player",
+            "seoIdentifier": "Morgan Frost"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658435#65415793_15L42133Q1-1930559442Q20",
+        "marketId": "217658435",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−110",
+          "decimal": "1.90",
+          "fractional": "10/11"
+        },
+        "trueOdds": 1.90909091,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35508",
+            "name": "Alex Tuch",
+            "type": "Player",
+            "seoIdentifier": "Alex Tuch"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658365#65415606_15L42133Q1-1930559442Q20",
+        "marketId": "217658365",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−125",
+          "decimal": "1.80",
+          "fractional": "4/5"
+        },
+        "trueOdds": 1.8,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34864",
+            "name": "Rasmus Dahlin",
+            "type": "Player",
+            "seoIdentifier": "Rasmus Dahlin"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658445#65415821_15L42133Q1-1930559442Q20",
+        "marketId": "217658445",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−166",
+          "decimal": "1.60",
+          "fractional": "50/83"
+        },
+        "trueOdds": 1.60240964,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34581",
+            "name": "Rickard Rakell",
+            "type": "Player",
+            "seoIdentifier": "Rickard Rakell"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658419#65415750_15L42133Q1-1930559442Q20",
+        "marketId": "217658419",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−200",
+          "decimal": "1.50",
+          "fractional": "1/2"
+        },
+        "trueOdds": 1.5,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34598",
+            "name": "Michael Bunting",
+            "type": "Player",
+            "seoIdentifier": "Michael Bunting"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658416#65415744_15L42133Q1-1930559442Q20",
+        "marketId": "217658416",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−125",
+          "decimal": "1.80",
+          "fractional": "4/5"
+        },
+        "trueOdds": 1.8,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34861",
+            "name": "Dylan Cozens",
+            "type": "Player",
+            "seoIdentifier": "Dylan Cozens"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658375#65415638_15L42133Q1-1930559442Q20",
+        "marketId": "217658375",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−140",
+          "decimal": "1.71",
+          "fractional": "5/7"
+        },
+        "trueOdds": 1.71428572,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34648",
+            "name": "Evgeni Malkin",
+            "type": "Player",
+            "seoIdentifier": "Evgeni Malkin"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658386#65415662_15L42133Q1-1930559442Q20",
+        "marketId": "217658386",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−125",
+          "decimal": "1.80",
+          "fractional": "4/5"
+        },
+        "trueOdds": 1.8,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34773",
+            "name": "Erik Karlsson",
+            "type": "Player",
+            "seoIdentifier": "Erik Karlsson"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659344#65418712_15L42133Q1-1930559442Q20",
+        "marketId": "217659344",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−130",
+          "decimal": "1.76",
+          "fractional": "10/13"
+        },
+        "trueOdds": 1.76923077,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "704929",
+            "name": "Alex Laferriere",
+            "type": "Player",
+            "seoIdentifier": "Alex Laferriere"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659384#65418821_15L42133Q1-1930559442Q20",
+        "marketId": "217659384",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−195",
+          "decimal": "1.51",
+          "fractional": "20/39"
+        },
+        "trueOdds": 1.51282052,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35258",
+            "name": "Morgan Rielly",
+            "type": "Player",
+            "seoIdentifier": "Morgan Rielly"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659414#65418895_15L42133Q1-1930559442Q20",
+        "marketId": "217659414",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−188",
+          "decimal": "1.53",
+          "fractional": "25/47"
+        },
+        "trueOdds": 1.5319149,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "704930",
+            "name": "Matthew Knies",
+            "type": "Player",
+            "seoIdentifier": "Matthew Knies"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659352#65418731_15L42133Q1-1930559442Q20",
+        "marketId": "217659352",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+120",
+          "decimal": "2.20",
+          "fractional": "6/5"
+        },
+        "trueOdds": 2.2,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35244",
+            "name": "Trevor Moore",
+            "type": "Player",
+            "seoIdentifier": "Trevor Moore"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659385#65418814_15L42133Q1-1930559442Q20",
+        "marketId": "217659385",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−195",
+          "decimal": "1.51",
+          "fractional": "20/39"
+        },
+        "trueOdds": 1.51282052,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35135",
+            "name": "Warren Foegele",
+            "type": "Player",
+            "seoIdentifier": "Warren Foegele"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659373#65418782_15L42133Q1-1930559442Q20",
+        "marketId": "217659373",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+124",
+          "decimal": "2.24",
+          "fractional": "31/25"
+        },
+        "trueOdds": 2.24,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35040",
+            "name": "Kevin Fiala",
+            "type": "Player",
+            "seoIdentifier": "Kevin Fiala"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "3rdFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659334#65418685_15L42133Q1-1930559442Q20",
+        "marketId": "217659334",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−130",
+          "decimal": "1.76",
+          "fractional": "10/13"
+        },
+        "trueOdds": 1.76923077,
+        "points": 2.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35235",
+            "name": "Mitchell Marner",
+            "type": "Player",
+            "seoIdentifier": "Mitchell Marner"
+          }
+        ],
+        "sortOrder": 2502,
+        "tags": [
+          "MainPointLine",
+          "SGP"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552759#64983543_13L42133Q1-212353899Q20",
+        "marketId": "217552759",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+130",
+          "decimal": "2.30",
+          "fractional": "13/10"
+        },
+        "trueOdds": 2.3,
+        "points": 3.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34652",
+            "name": "Connor McDavid",
+            "type": "Player",
+            "seoIdentifier": "Connor McDavid"
+          }
+        ],
+        "sortOrder": 3500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552735#64983487_13L42133Q1-212353899Q20",
+        "marketId": "217552735",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+130",
+          "decimal": "2.30",
+          "fractional": "13/10"
+        },
+        "trueOdds": 2.3,
+        "points": 3.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35205",
+            "name": "Zach Hyman",
+            "type": "Player",
+            "seoIdentifier": "Zach Hyman"
+          }
+        ],
+        "sortOrder": 3500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552764#64983548_13L42133Q1-212353899Q20",
+        "marketId": "217552764",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+130",
+          "decimal": "2.30",
+          "fractional": "13/10"
+        },
+        "trueOdds": 2.3,
+        "points": 3.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34833",
+            "name": "Owen Tippett",
+            "type": "Player",
+            "seoIdentifier": "Owen Tippett"
+          }
+        ],
+        "sortOrder": 3500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658400#65415699_13L42133Q1-212353899Q20",
+        "marketId": "217658400",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+124",
+          "decimal": "2.24",
+          "fractional": "31/25"
+        },
+        "trueOdds": 2.24,
+        "points": 3.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35982",
+            "name": "Sidney Crosby",
+            "type": "Player",
+            "seoIdentifier": "Sidney Crosby"
+          }
+        ],
+        "sortOrder": 3500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658442#65415809_13L42133Q1-212353899Q20",
+        "marketId": "217658442",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+105",
+          "decimal": "2.05",
+          "fractional": "21/20"
+        },
+        "trueOdds": 2.05,
+        "points": 3.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34974",
+            "name": "Tage Thompson",
+            "type": "Player",
+            "seoIdentifier": "Tage Thompson"
+          }
+        ],
+        "sortOrder": 3500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658426#65415771_13L42133Q1-212353899Q20",
+        "marketId": "217658426",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+130",
+          "decimal": "2.30",
+          "fractional": "13/10"
+        },
+        "trueOdds": 2.3,
+        "points": 3.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34679",
+            "name": "Bryan Rust",
+            "type": "Player",
+            "seoIdentifier": "Bryan Rust"
+          }
+        ],
+        "sortOrder": 3500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659327#65418668_13L42133Q1-212353899Q20",
+        "marketId": "217659327",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+114",
+          "decimal": "2.14",
+          "fractional": "57/50"
+        },
+        "trueOdds": 2.14,
+        "points": 3.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35273",
+            "name": "John Tavares",
+            "type": "Player",
+            "seoIdentifier": "John Tavares"
+          }
+        ],
+        "sortOrder": 3500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659406#65418865_13L42133Q1-212353899Q20",
+        "marketId": "217659406",
+        "label": "Over",
+        "displayOdds": {
+          "american": "+110",
+          "decimal": "2.10",
+          "fractional": "11/10"
+        },
+        "trueOdds": 2.1,
+        "points": 3.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "34915",
+            "name": "Adrian Kempe",
+            "type": "Player",
+            "seoIdentifier": "Adrian Kempe"
+          }
+        ],
+        "sortOrder": 3500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552759#64983544_15L42133Q1-1061989643Q20",
+        "marketId": "217552759",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−166",
+          "decimal": "1.60",
+          "fractional": "50/83"
+        },
+        "trueOdds": 1.60240964,
+        "points": 3.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34652",
+            "name": "Connor McDavid",
+            "type": "Player",
+            "seoIdentifier": "Connor McDavid"
+          }
+        ],
+        "sortOrder": 3502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552735#64983488_15L42133Q1-1061989643Q20",
+        "marketId": "217552735",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−166",
+          "decimal": "1.60",
+          "fractional": "50/83"
+        },
+        "trueOdds": 1.60240964,
+        "points": 3.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35205",
+            "name": "Zach Hyman",
+            "type": "Player",
+            "seoIdentifier": "Zach Hyman"
+          }
+        ],
+        "sortOrder": 3502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217552764#64983549_15L42133Q1-1061989643Q20",
+        "marketId": "217552764",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−166",
+          "decimal": "1.60",
+          "fractional": "50/83"
+        },
+        "trueOdds": 1.60240964,
+        "points": 3.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34833",
+            "name": "Owen Tippett",
+            "type": "Player",
+            "seoIdentifier": "Owen Tippett"
+          }
+        ],
+        "sortOrder": 3502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658400#65415701_15L42133Q1-1061989643Q20",
+        "marketId": "217658400",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−160",
+          "decimal": "1.62",
+          "fractional": "5/8"
+        },
+        "trueOdds": 1.625,
+        "points": 3.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35982",
+            "name": "Sidney Crosby",
+            "type": "Player",
+            "seoIdentifier": "Sidney Crosby"
+          }
+        ],
+        "sortOrder": 3502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658442#65415810_15L42133Q1-1061989643Q20",
+        "marketId": "217658442",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−135",
+          "decimal": "1.74",
+          "fractional": "20/27"
+        },
+        "trueOdds": 1.74074075,
+        "points": 3.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34974",
+            "name": "Tage Thompson",
+            "type": "Player",
+            "seoIdentifier": "Tage Thompson"
+          }
+        ],
+        "sortOrder": 3502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217658426#65415772_15L42133Q1-1061989643Q20",
+        "marketId": "217658426",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−166",
+          "decimal": "1.60",
+          "fractional": "50/83"
+        },
+        "trueOdds": 1.60240964,
+        "points": 3.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34679",
+            "name": "Bryan Rust",
+            "type": "Player",
+            "seoIdentifier": "Bryan Rust"
+          }
+        ],
+        "sortOrder": 3502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659327#65418669_15L42133Q1-1061989643Q20",
+        "marketId": "217659327",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−145",
+          "decimal": "1.68",
+          "fractional": "20/29"
+        },
+        "trueOdds": 1.68965518,
+        "points": 3.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35273",
+            "name": "John Tavares",
+            "type": "Player",
+            "seoIdentifier": "John Tavares"
+          }
+        ],
+        "sortOrder": 3502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "2ndFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659406#65418866_15L42133Q1-1061989643Q20",
+        "marketId": "217659406",
+        "label": "Under",
+        "displayOdds": {
+          "american": "−140",
+          "decimal": "1.71",
+          "fractional": "5/7"
+        },
+        "trueOdds": 1.71428572,
+        "points": 3.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "34915",
+            "name": "Adrian Kempe",
+            "type": "Player",
+            "seoIdentifier": "Adrian Kempe"
+          }
+        ],
+        "sortOrder": 3502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659388#65418818_13L42133Q11691664427Q20",
+        "marketId": "217659388",
+        "label": "Over",
+        "displayOdds": {
+          "american": "−135",
+          "decimal": "1.74",
+          "fractional": "20/27"
+        },
+        "trueOdds": 1.74074075,
+        "points": 4.5,
+        "outcomeType": "Over",
+        "participants": [
+          {
+            "id": "35238",
+            "name": "Auston Matthews",
+            "type": "Player",
+            "seoIdentifier": "Auston Matthews"
+          }
+        ],
+        "sortOrder": 4500,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      },
+      {
+        "id": "0QA217659388#65418819_15L42133Q1353095736Q20",
+        "marketId": "217659388",
+        "label": "Under",
+        "displayOdds": {
+          "american": "+105",
+          "decimal": "2.05",
+          "fractional": "21/20"
+        },
+        "trueOdds": 2.05,
+        "points": 4.5,
+        "outcomeType": "Under",
+        "participants": [
+          {
+            "id": "35238",
+            "name": "Auston Matthews",
+            "type": "Player",
+            "seoIdentifier": "Auston Matthews"
+          }
+        ],
+        "sortOrder": 4502,
+        "tags": [
+          "MainPointLine",
+          "SGP",
+          "1stFavorite"
+        ],
+        "main": true
+      }
+    ],
+    "categories": [
+      {
+        "id": 496,
+        "name": "Game Lines",
+        "sortOrder": 496,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 1162,
+        "name": "Live Player Props",
+        "sortOrder": 547
+      },
+      {
+        "id": 559,
+        "name": "Live Props",
+        "sortOrder": 548
+      },
+      {
+        "id": 1259,
+        "name": "Quick Hits",
+        "sortOrder": 549
+      },
+      {
+        "id": 1190,
+        "name": "Goalscorer",
+        "sortOrder": 550,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 1189,
+        "name": "Shots on Goal",
+        "sortOrder": 552,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 1675,
+        "name": "Points",
+        "sortOrder": 554,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 1676,
+        "name": "Assists",
+        "sortOrder": 559,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 1679,
+        "name": "Blocks",
+        "sortOrder": 566,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 1064,
+        "name": "Goalie Props",
+        "sortOrder": 592
+      },
+      {
+        "id": 548,
+        "name": "Periods",
+        "sortOrder": 690,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 1193,
+        "name": "Team Totals",
+        "sortOrder": 790,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 549,
+        "name": "Game Props",
+        "sortOrder": 898,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 547,
+        "name": "Game Props (60 Min)",
+        "sortOrder": 1004
+      },
+      {
+        "id": 554,
+        "name": "Game Parlays",
+        "sortOrder": 1069
+      },
+      {
+        "id": 552,
+        "name": "Team Futures",
+        "sortOrder": 1179
+      },
+      {
+        "id": 592,
+        "name": "Awards",
+        "sortOrder": 1187
+      }
+    ],
+    "subcategories": [
+      {
+        "id": 13422,
+        "categoryId": 552,
+        "name": "Champion",
+        "componentId": 29,
+        "sortOrder": 4748,
+        "tags": []
+      },
+      {
+        "id": 9236,
+        "categoryId": 552,
+        "name": "Conference Winner",
+        "componentId": 29,
+        "sortOrder": 4981,
+        "tags": []
+      },
+      {
+        "id": 9034,
+        "categoryId": 552,
+        "name": "Division Winner",
+        "componentId": 29,
+        "sortOrder": 4982,
+        "tags": []
+      },
+      {
+        "id": 8807,
+        "categoryId": 552,
+        "name": "Presidents' Trophy Winner",
+        "componentId": 29,
+        "sortOrder": 10754,
+        "tags": []
+      },
+      {
+        "id": 9033,
+        "categoryId": 552,
+        "name": "Winner Specials",
+        "componentId": 29,
+        "sortOrder": 13581,
+        "tags": []
+      },
+      {
+        "id": 15412,
+        "categoryId": 559,
+        "name": "Power Play Result",
+        "componentId": 205,
+        "sortOrder": 15067,
+        "tags": [
+          "Featured",
+          "Live"
+        ]
+      },
+      {
+        "id": 4525,
+        "categoryId": 496,
+        "name": "Game",
+        "componentId": 210,
+        "sortOrder": 4520,
+        "tags": [
+          "Featured",
+          "Live",
+          "SGP"
+        ]
+      },
+      {
+        "id": 10829,
+        "categoryId": 559,
+        "name": "Next Goal ",
+        "componentId": 30,
+        "sortOrder": 6146,
+        "tags": [
+          "Featured",
+          "Live"
+        ]
+      },
+      {
+        "id": 11002,
+        "categoryId": 549,
+        "name": "Winning Margin (Incl OT)",
+        "componentId": 202,
+        "sortOrder": 11461,
+        "tags": []
+      },
+      {
+        "id": 11289,
+        "categoryId": 549,
+        "name": "Total Goals Odd/Even",
+        "componentId": 29,
+        "sortOrder": 13772,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 11567,
+        "categoryId": 547,
+        "name": "First/Last to Score",
+        "componentId": 30,
+        "sortOrder": 14912,
+        "tags": []
+      },
+      {
+        "id": 12055,
+        "categoryId": 1193,
+        "name": "Team Total Goals",
+        "componentId": 29,
+        "sortOrder": 12017,
+        "tags": [
+          "Featured",
+          "Live",
+          "SGP"
+        ]
+      },
+      {
+        "id": 12056,
+        "categoryId": 1193,
+        "name": "Team Total Goals (excl OT)",
+        "componentId": 29,
+        "sortOrder": 12018,
+        "tags": []
+      },
+      {
+        "id": 13189,
+        "categoryId": 496,
+        "name": "Alt Puck Line",
+        "componentId": 240,
+        "sortOrder": 5081,
+        "tags": []
+      },
+      {
+        "id": 13192,
+        "categoryId": 496,
+        "name": "Alt Total",
+        "componentId": 240,
+        "sortOrder": 4994,
+        "tags": []
+      },
+      {
+        "id": 13193,
+        "categoryId": 549,
+        "name": "Alternative Puck Lines",
+        "componentId": 240,
+        "sortOrder": 13148,
+        "tags": []
+      },
+      {
+        "id": 14952,
+        "categoryId": 547,
+        "name": "Total Goals - Listed Time",
+        "componentId": 29,
+        "sortOrder": 4833,
+        "tags": []
+      },
+      {
+        "id": 15268,
+        "categoryId": 547,
+        "name": "Winning Margin (Excl OT)",
+        "componentId": 202,
+        "sortOrder": 15225,
+        "tags": []
+      },
+      {
+        "id": 15411,
+        "categoryId": 559,
+        "name": "Goal Strength",
+        "componentId": 29,
+        "sortOrder": 7139,
+        "tags": [
+          "Featured",
+          "Live"
+        ]
+      },
+      {
+        "id": 15413,
+        "categoryId": 559,
+        "name": "Shots On Goal",
+        "componentId": 205,
+        "sortOrder": 7524,
+        "tags": [
+          "Featured",
+          "Live"
+        ]
+      },
+      {
+        "id": 4841,
+        "categoryId": 548,
+        "name": "3rd Period",
+        "componentId": 210,
+        "sortOrder": 4866,
+        "tags": []
+      },
+      {
+        "id": 4999,
+        "categoryId": 496,
+        "name": "60 Min Line",
+        "componentId": 11,
+        "sortOrder": 4713,
+        "tags": [
+          "Featured",
+          "Live"
+        ]
+      },
+      {
+        "id": 5070,
+        "categoryId": 549,
+        "name": "Race to X Goals",
+        "componentId": 30,
+        "sortOrder": 4741,
+        "tags": [
+          "Featured",
+          "Live",
+          "SGP"
+        ]
+      },
+      {
+        "id": 5861,
+        "categoryId": 547,
+        "name": "Correct Score (Excl OT)",
+        "componentId": 202,
+        "sortOrder": 4827,
+        "tags": [
+          "Featured",
+          "Live"
+        ]
+      },
+      {
+        "id": 6353,
+        "categoryId": 496,
+        "name": "Tie No Bet",
+        "componentId": 12,
+        "sortOrder": 4737,
+        "tags": []
+      },
+      {
+        "id": 6978,
+        "categoryId": 548,
+        "name": "Period Winner - 3 Way",
+        "componentId": 30,
+        "sortOrder": 5214,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 7022,
+        "categoryId": 549,
+        "name": "Overtime",
+        "componentId": 12,
+        "sortOrder": 7858,
+        "tags": []
+      },
+      {
+        "id": 16259,
+        "categoryId": 1162,
+        "name": "Anytime Goalscorer",
+        "componentId": 204,
+        "sortOrder": 11512,
+        "tags": [
+          "Featured",
+          "Live"
+        ]
+      },
+      {
+        "id": 12059,
+        "categoryId": 1193,
+        "name": "Both Teams to Score 2+ Goals",
+        "componentId": 29,
+        "sortOrder": 12021,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 12153,
+        "categoryId": 548,
+        "name": "Team Total Goals",
+        "componentId": 29,
+        "sortOrder": 4863,
+        "tags": []
+      },
+      {
+        "id": 4783,
+        "categoryId": 548,
+        "name": "2nd Period",
+        "componentId": 210,
+        "sortOrder": 4865,
+        "tags": []
+      },
+      {
+        "id": 10283,
+        "categoryId": 1064,
+        "name": "Saves",
+        "componentId": 8,
+        "sortOrder": 10249,
+        "tags": []
+      },
+      {
+        "id": 10285,
+        "categoryId": 1064,
+        "name": "Shutout",
+        "componentId": 29,
+        "sortOrder": 10251,
+        "tags": []
+      },
+      {
+        "id": 11001,
+        "categoryId": 549,
+        "name": "Correct Score (Incl OT)",
+        "componentId": 202,
+        "sortOrder": 4777,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 11493,
+        "categoryId": 548,
+        "name": "Alt Total Goals - Listed Period",
+        "componentId": 29,
+        "sortOrder": 4756,
+        "tags": []
+      },
+      {
+        "id": 12040,
+        "categoryId": 1189,
+        "name": "Shots on Goal O/U",
+        "componentId": 8,
+        "sortOrder": 12002,
+        "tags": [
+          "Featured",
+          "SGP"
+        ]
+      },
+      {
+        "id": 12057,
+        "categoryId": 1193,
+        "name": "Both Teams To Score",
+        "componentId": 29,
+        "sortOrder": 12019,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 12131,
+        "categoryId": 548,
+        "name": "Goal In First 10 - Listed Period",
+        "componentId": 29,
+        "sortOrder": 4836,
+        "tags": []
+      },
+      {
+        "id": 13748,
+        "categoryId": 1259,
+        "name": "Goal in First Five",
+        "componentId": 29,
+        "sortOrder": 12992,
+        "tags": []
+      },
+      {
+        "id": 13750,
+        "categoryId": 1259,
+        "name": "Goal in First Ten",
+        "componentId": 29,
+        "sortOrder": 12991,
+        "tags": [
+          "Featured"
+        ]
+      },
+      {
+        "id": 13808,
+        "categoryId": 1190,
+        "name": "Goalscorer",
+        "componentId": 18,
+        "sortOrder": 12005,
+        "tags": [
+          "Featured",
+          "SGP"
+        ]
+      },
+      {
+        "id": 13810,
+        "categoryId": 548,
+        "name": "Odd/Even - Listed Period",
+        "componentId": 29,
+        "sortOrder": 13770,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 13811,
+        "categoryId": 549,
+        "name": "To Go to OT",
+        "componentId": 29,
+        "sortOrder": 13151,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 13812,
+        "categoryId": 549,
+        "name": "Win From Behind",
+        "componentId": 29,
+        "sortOrder": 13153,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 14497,
+        "categoryId": 1190,
+        "name": "Last Goalscorer",
+        "componentId": 204,
+        "sortOrder": 15317,
+        "tags": []
+      },
+      {
+        "id": 15515,
+        "categoryId": 1190,
+        "name": "Player Goal Milestones",
+        "componentId": 29,
+        "sortOrder": 15318,
+        "tags": []
+      },
+      {
+        "id": 15516,
+        "categoryId": 1189,
+        "name": "Shots on Goal",
+        "componentId": 29,
+        "sortOrder": 12136,
+        "tags": [
+          "Featured"
+        ]
+      },
+      {
+        "id": 16212,
+        "categoryId": 1675,
+        "name": "Points",
+        "componentId": 29,
+        "sortOrder": 16170,
+        "tags": [
+          "Featured"
+        ]
+      },
+      {
+        "id": 16213,
+        "categoryId": 1675,
+        "name": "Points O/U",
+        "componentId": 8,
+        "sortOrder": 16169,
+        "tags": [
+          "Featured",
+          "SGP"
+        ]
+      },
+      {
+        "id": 16214,
+        "categoryId": 1676,
+        "name": "Assists",
+        "componentId": 29,
+        "sortOrder": 16172,
+        "tags": [
+          "Featured"
+        ]
+      },
+      {
+        "id": 16215,
+        "categoryId": 1676,
+        "name": "Assists O/U",
+        "componentId": 8,
+        "sortOrder": 16171,
+        "tags": [
+          "Featured",
+          "SGP"
+        ]
+      },
+      {
+        "id": 16257,
+        "categoryId": 1679,
+        "name": "Blocks O/U",
+        "componentId": 8,
+        "sortOrder": 16214,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 16270,
+        "categoryId": 1064,
+        "name": "Shutout (Excl OT)",
+        "componentId": 29,
+        "sortOrder": 16227,
+        "tags": []
+      },
+      {
+        "id": 4761,
+        "categoryId": 548,
+        "name": "1st Period",
+        "componentId": 210,
+        "sortOrder": 4738,
+        "tags": [
+          "Featured",
+          "SGP"
+        ]
+      },
+      {
+        "id": 5719,
+        "categoryId": 554,
+        "name": "1st Period/End of Regulation",
+        "componentId": 204,
+        "sortOrder": 6171,
+        "tags": []
+      },
+      {
+        "id": 5879,
+        "categoryId": 548,
+        "name": "Correct Score - Listed Period",
+        "componentId": 202,
+        "sortOrder": 4755,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 6270,
+        "categoryId": 548,
+        "name": "Team Totals - Listed Period",
+        "componentId": 29,
+        "sortOrder": 4739,
+        "tags": [
+          "Featured",
+          "SGP"
+        ]
+      },
+      {
+        "id": 6271,
+        "categoryId": 548,
+        "name": "Both Teams to Score - 1st Period",
+        "componentId": 29,
+        "sortOrder": 4776,
+        "tags": [
+          "SGP"
+        ]
+      },
+      {
+        "id": 6306,
+        "categoryId": 548,
+        "name": "Highest Scoring Period",
+        "componentId": 12,
+        "sortOrder": 5873,
+        "tags": []
+      },
+      {
+        "id": 6320,
+        "categoryId": 549,
+        "name": "First/Last to Score",
+        "componentId": 30,
+        "sortOrder": 4740,
+        "tags": [
+          "Featured",
+          "SGP"
+        ]
+      },
+      {
+        "id": 7863,
+        "categoryId": 554,
+        "name": "Moneyline/Total Goals",
+        "componentId": 204,
+        "sortOrder": 4767,
+        "tags": []
+      },
+      {
+        "id": 7864,
+        "categoryId": 554,
+        "name": "Puck Line/Total Goals",
+        "componentId": 204,
+        "sortOrder": 5713,
+        "tags": []
+      },
+      {
+        "id": 13406,
+        "categoryId": 552,
+        "name": "Regular Season Points",
+        "componentId": 29,
+        "sortOrder": 7359,
+        "tags": []
+      },
+      {
+        "id": 7474,
+        "categoryId": 592,
+        "name": "Rocket Richard",
+        "componentId": 29,
+        "sortOrder": 4984,
+        "tags": []
+      },
+      {
+        "id": 16012,
+        "categoryId": 552,
+        "name": "Season Series Matchups",
+        "componentId": 30,
+        "sortOrder": 15969,
+        "tags": []
+      },
+      {
+        "id": 9232,
+        "categoryId": 552,
+        "name": "To Make the Playoffs",
+        "componentId": 29,
+        "sortOrder": 9923,
+        "tags": []
+      }
+    ],
+    "subscriptionPartials": {
+      "league-events-42133": {
+        "entity": "events",
+        "query": "$filter=leagueId eq '42133' and clientMetadata/Subcategories/any(s: s/Id eq '12040')&$orderBy=startEventDate asc",
+        "includeMarkets": "$filter=tags/all(t: t ne 'SportcastBetBuilder') and clientMetadata/subCategoryId eq '12040'"
+      }
+    }
+  }
