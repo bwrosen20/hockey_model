@@ -38,6 +38,8 @@ with app.app_context():
 
 
     #https://sportsbook-nash.draftkings.com/api/sportscontent/dkusny/v1/leagues/42133/categories/1189
+    #https://sportsbook-nash.draftkings.com/api/sportscontent/dkusny/v1/leagues/42133/categories/1189/subcategories/12040
+
 
     # Open the JSON file
     with open('draftkings.json') as f:
@@ -76,8 +78,8 @@ with app.app_context():
         else:
             [guy for guy in odds_list if guy["name"]==name][0][over_under]=odds
     
-    # for odd in odds_list:
-    #     print(odd)
+    for odd in odds_list:
+        print(odd)
 
     # ipdb.set_trace()
 
@@ -126,7 +128,8 @@ with app.app_context():
             list_of_teams.append(game.select('td')[1].text)
             my_time = game.select('td')[0].text
             empty_time = my_time.replace('PM','').replace('AM','').replace(":","").replace(' ','')
-            if my_time[-1]=='p':
+        
+            if my_time[-2]=='P':
                 empty_time = str(int(empty_time)+1200)
                 if int(empty_time) >= 2400:
                     empty_time = "0"+empty_time[2:4]
