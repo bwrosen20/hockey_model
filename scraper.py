@@ -60,6 +60,20 @@ with app.app_context():
         location = box_score_data.select('.scorebox')[0].select(".scorebox_meta")[0].select('div')[2].text.replace('Arena: ','')
 
 
+
+        match = Game(
+            visitor = visitor,
+            home = home,
+            away_score = away_score,
+            home_score = home_score,
+            location = location,
+            date = real_time
+        )
+        
+        db.session.add(match)
+        db.session.commit()
+
+
         away_players = box_score_data.select('tbody')[0].select('tr')
         away_goalie = box_score_data.select('tbody')[1].select('tr')
         home_players = box_score_data.select('tbody')[2].select('tr')
@@ -80,6 +94,13 @@ with app.app_context():
             team = visitor
             pp_goals = player.select('td')[7].text
             pp_assists = player.select('td')[11].text
+            shots = player.select('td')[13].text
+            penalty_minutes = player.select('td')[5].text
+            home = False
+            
+            minutes_string = player.select('td')[16].text
+            minutes = (int(minutes_string[-2:])/60)+int(minutes_string[-5:2].replace(':',''))
+
 
             skater_advanced_even = away_advanced_even[index]
 
@@ -90,26 +111,94 @@ with app.app_context():
             even_blocks = skater_advanced_even.select('td')[9].text
 
             skater_advanced_pp = away_advanced_pp[index]
-            
 
+            pp_corsi = skater_advanced_pp.select('td')[0].text
+            pp_on_ice_corsi = skater_advanced_pp.select('td')[1].text
+            pp_on_ice_against_corsi = skater_advanced_pp.select('td')[2].text
+            pp_hits = skater_advanced_pp.select('td')[8].text
+            pp_blocks = skater_advanced_pp.select('td')[9].text
+
+
+            if (name in [person.name for person in Player.query.all()]):
+                assoc_player = Player.query.filter(Player.name == name).first()
+            else:
+                assoc_player = Player(name=name)
+                db.session.add(assoc_player)
+                db.session.commit()
+
+            player_game.player = assoc_player
+            player_game.game = match
+            db.session.add(player_game)
+            db.session.commit()
+
+
+        for index, player in enumerate(home_players):
+            name = unidecode(player.select('td')[0].text)
+            goals = player.select('td')[1].text
+            assists = player.select('td')[2].text
+            points = player.select('td')[3].text
+            team = visitor
+            pp_goals = player.select('td')[7].text
+            pp_assists = player.select('td')[11].text
+            shots = player.select('td')[13].text
+            penalty_minutes = player.select('td')[5].text
+            home = False
+            
+            minutes_string = player.select('td')[16].text
+            minutes = (int(minutes_string[-2:])/60)+int(minutes_string[-5:2].replace(':',''))
+
+
+            skater_advanced_even = home_advanced_even[index]
+
+            even_corsi = skater_advanced_even.select('td')[0].text
+            even_on_ice_corsi = skater_advanced_even.select('td')[1].text
+            even_on_ice_against_corsi = skater_advanced_even.select('td')[2].text
+            even_hits = skater_advanced_even.select('td')[8].text
+            even_blocks = skater_advanced_even.select('td')[9].text
+
+            skater_advanced_pp = home_advanced_pp[index]
+
+            pp_corsi = skater_advanced_pp.select('td')[0].text
+            pp_on_ice_corsi = skater_advanced_pp.select('td')[1].text
+            pp_on_ice_against_corsi = skater_advanced_pp.select('td')[2].text
+            pp_hits = skater_advanced_pp.select('td')[8].text
+            pp_blocks = skater_advanced_pp.select('td')[9].text
 
             ipdb.set_trace()
 
 
+# id = db.Column(db.Integer, primary_key=True)
+#     team = db.Column(db.String)
+#     minutes = db.Column(db.Float)
+#     shots = db.Column(db.Integer)
+#     points = db.Column(db.Integer)
+#     assists = db.Column(db.Integer)
+#     goals = db.Column(db.Integer)
+#     pp_goals = db.Column(db.Integer)
+#     pp_assists = db.Column(db.Integer)
+#     penalty_minutes = db.Column(db.Integer)
+#     home = db.Column(db.Boolean)
+
+#     pp_corsi = db.Column(db.Integer)
+#     even_corsi = db.Column(db.Integer)
+#     even_on_ice_corsi = db.Column(db.Integer)
+#     pp_on_ice_corsi = db.Column(db.Integer)
+#     even_on_ice_against_corsi = db.Column(db.Integer)
+#     pp_on_ice_against_corsi = db.Column(db.Integer)
+#     pp_hits = db.column(db.Integer)
+#     even_hits = db.Column(db.Integer)
+#     pp_blocks = db.Column(db.Integer)
+#     even_blocks = db.Column(db.Integer)
+
+#     player_id = db.Column('player_id',db.Integer, db.ForeignKey('player.id'))
+#     game_id = db.Column('game_id',db.Integer, db.ForeignKey('game.id'))
 
 
 
 
 
-        match = Game(
-            visitor = visitor,
-            home = home,
-            away_score = away_score,
-            home_score = home_score,
-            location = location,
-            date = real_time
-        )
 
+       
     #     date = game.select('th')[0].text
     #     new_date = date.replace(',','')
     #     my_time = (game.select('td')[0].text)
