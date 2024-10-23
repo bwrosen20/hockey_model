@@ -21,12 +21,12 @@ class Game(db.Model, SerializerMixin):
     location = db.Column(db.String)
     home_score = db.Column(db.Integer)
     away_score = db.Column(db.Integer)
-    home_total_corsi = db.Column(db.Integer)
-    away_total_corsi = db.Column(db.Integer)
-    home_total_hits = db.Column(db.Integer)
-    away_total_hits = db.Column(db.Integer)
-    home_total_blocks = db.Column(db.Integer)
-    away_total_blocks = db.Column(db.Integer)
+    home_even_corsi = db.Column(db.Integer)
+    away_even_corsi = db.Column(db.Integer)
+    home_even_hits = db.Column(db.Integer)
+    away_even_hits = db.Column(db.Integer)
+    home_even_blocks = db.Column(db.Integer)
+    away_even_blocks = db.Column(db.Integer)
 
     home_pp_corsi = db.Column(db.Integer)
     away_pp_corsi = db.Column(db.Integer)
@@ -81,7 +81,7 @@ class Goalie(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
-    games = db.relationship('PlayerGame', back_populates='goalie')
+    games = db.relationship('GoalieGame', back_populates='goalie')
 
     
 
@@ -135,6 +135,9 @@ class PlayerGame(db.Model, SerializerMixin):
     pp_blocks = db.Column(db.Integer)
     even_blocks = db.Column(db.Integer)
 
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+
     player_id = db.Column('player_id',db.Integer, db.ForeignKey('player.id'))
     game_id = db.Column('game_id',db.Integer, db.ForeignKey('game.id'))
 
@@ -154,6 +157,8 @@ class GoalieGame(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     saves = db.Column(db.Integer)
     goals = db.Column(db.Integer)
+    minutes = db.Column(db.Float)
+    penalty_minutes = db.Column(db.Integer)
 
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
@@ -167,7 +172,7 @@ class GoalieGame(db.Model, SerializerMixin):
     
 
     def __repr__(self):
-        return f'<{self.name}>'
+        return f'<{self.goalie.name} on {self.game.date}>'
 
 # class Team(db.Model, SerializerMixin):
 #     __tablename__ = 'teams'
