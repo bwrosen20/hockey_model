@@ -11,20 +11,22 @@ from unidecode import unidecode
 import time
 import requests
 import ipdb
+import codecs
 
 
 
 with app.app_context():
-    
-    
+
 
     # for year in years:
 
-    years = ["2018","2019","2020","2021","2022","2023"]
+    #years = ["2022","2023"]
+    # years = ["2018","2019","2020","2021","2022"]
+    years = ["2023","2024"]
 
     for year in years:   
 
-            
+        
         # headers = {'user-agent': 'my-app/0.0.1'}
         html = requests.get(f"https://www.hockey-reference.com/leagues/NHL_{year}_games.html", headers={'User-Agent':"Mozilla/5.0"})
         # date = html.select('div.ScheduleDay_sd_GFE_w')[0]
@@ -34,10 +36,10 @@ with app.app_context():
         # rows.pop(0)
 
         # ipdb.set_trace()
-        games = []
 
         for game in rows:
 
+            
 
             url_ending = game.select('a')[0].get("href")
 
@@ -47,7 +49,16 @@ with app.app_context():
 
             box_score = requests.get(box_score_url, headers={'User-Agent':"Mozilla/5.0"})
 
-            box_score_data = BeautifulSoup(box_score.text, 'lxml')
+            box_score_data = BeautifulSoup(box_score.content.decode('utf-8'), "html.parser")
+            with open("output.html", "w") as file:
+                file.write(box_score_data.decode('utf-8'))
+
+           
+
+            # box_score_data= BeautifulSoup(box_score.text,'lxml')
+
+            # with open("output.html", "w") as file:
+            #     file.write(box_score_data.decode('utf-8'))
 
             visitor =  box_score_data.select('.scorebox')[0].select('strong')[0].select('a')[0].text
             home =  box_score_data.select('.scorebox')[0].select('strong')[1].select('a')[0].text
@@ -62,7 +73,7 @@ with app.app_context():
             real_time = datetime.strptime(site_time,"%B %d, %Y, %I:%M %p")
             location = box_score_data.select('.scorebox')[0].select(".scorebox_meta")[0].select('div')[2].text.replace('Arena: ','')
 
-
+            
 
             match = Game(
                 visitor = visitor,
@@ -104,7 +115,8 @@ with app.app_context():
             home_penalty_mins = 0
 
             for goalie in away_goalie:
-                name = unidecode(goalie.select('td')[0].text.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar'))
+                name = unidecode(goalie.select('td')[0].text)
+                # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
                 if name=="Empty Net":
                     break
 
@@ -137,7 +149,8 @@ with app.app_context():
                 # db.session.commit()
 
             for goalie in home_goalie:
-                name = unidecode(goalie.select('td')[0].text.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar'))
+                name = unidecode(goalie.select('td')[0].text)
+                # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
                 if name=="Empty Net":
                     break
                 goals = int(goalie.select('td')[2].text)
@@ -171,7 +184,8 @@ with app.app_context():
 
 
             for index, player in enumerate(away_players[0:-1]):
-                name = unidecode(player.select('td')[0].text.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar'))
+                name = unidecode(player.select('td')[0].text)
+                # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
                 goals = int(player.select('td')[1].text)
                 assists = int(player.select('td')[2].text)
                 points = int(player.select('td')[3].text)
@@ -259,11 +273,12 @@ with app.app_context():
 
 
             for index, player in enumerate(home_players[0:-1]):
-                name = unidecode(player.select('td')[0].text.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar'))
+                name = unidecode(player.select('td')[0].text)
+                # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
                 goals = int(player.select('td')[1].text)
                 assists = int(player.select('td')[2].text)
                 points = int(player.select('td')[3].text)
-                team = visitor
+                team = home
                 pp_goals = int(player.select('td')[7].text)
                 pp_assists = int(player.select('td')[11].text)
                 shots = int(player.select('td')[13].text)
@@ -271,7 +286,6 @@ with app.app_context():
                 
                 minutes_string = player.select('td')[16].text
                 minutes = (int(minutes_string[-2:])/60)+int(minutes_string[-5:2].replace(':',''))
-
 
                 try:
                     skater_advanced_even = home_advanced_even[index]
@@ -360,7 +374,6 @@ with app.app_context():
             match.away_pp_hits = away_pp_hits 
             match.away_pp_blocks = away_pp_blocks
             match.away_penalty_mins = away_penalty_mins
-
 
             db.session.commit()
             print(match)
