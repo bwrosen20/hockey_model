@@ -1,5 +1,6 @@
 from app import *
 from bs4 import BeautifulSoup
+from scrape_a_day import scrape_a_day
 import requests
 from unidecode import unidecode
 import json
@@ -28,7 +29,7 @@ with app.app_context():
     current_date = full_date.date()
     # current_date = datetime(2023,11,27).date()
 
-    yesterday = current_date - timedelta(1)
+    yesterday = current_date-timedelta(1)
     time_list = date_string.replace(",","").split()
     month = time_list[1].lower()
     year = int(time_list[3])
@@ -37,12 +38,92 @@ with app.app_context():
         year = year+1
     year_string = str(year)
 
+    if len(FinalBet.query.all())>0:
+        last_game_date = Game.query.all()[-1].date.date()
+        last_bet_date = FinalBet.query.all()[-1].date.date()
+
+        if last_game_date != current_date and current_date!=last_bet_date and last_game_date!=yesterday:
+            scrape_a_day(last_game_date)
+
+        bets_to_check = [fb for fb in FinalBet.query.all() if fb.date.date()==Game.query.all()[-1].date.date()]
+
+        print("\nResults\n")
+        for item in bets_to_check:
+
+            name = item.name
+            prop = item.prop
+            over = item.over
+            teaser = float(item.line)-1
+            regular = float(item.line)
+            player_who_played = Player.query.filter(Player.name==name).first()
+
+
+            try:
+                yesterdays_game = player_who_played.games[-1]
+            except AttributeError:
+
+                last_name = name.split(' ')[-1]
+                first_two_letters = name.split(' ')[0][0:2]
+                new_player_object_list = [guy for guy in Player.query.all() if guy.name.split(' ')[-1]==last_name]
+                # if player["name"]=="Matthew Boldy":
+                #     ipdb.set_trace()
+                
+                
+                if len(new_player_object_list)==1:
+                    player_who_played = new_player_object_list[0]
+                elif len(new_player_object_list)>1:
+                    newer_player_object_list = [guy for guy in new_player_object_list if guy.name.split(' ')[0][0:2]==first_two_letters]
+                    if len(newer_player_object_list)==1:
+                        player_who_played = newer_player_object_list[0]
+                    else:
+                        print(f'{player["name"]} not in database')
+                        continue
+
+                else:
+                    print(f'{player["name"]} not in database')
+                    continue
+                yesterdays_game = player_who_played.games[-1]
+
+            if yesterdays_game.game.date.date()==yesterday:
+                if prop=="shots":
+                    actual_score = yesterdays_game.shots
+                elif prop=="blocks":
+                    actual_score = yesterdays_game.pp_blocks+yesterdays_game.even_blocks
+                if over==False and actual_score <=regular:
+                    did_they_do_it = "✅✅"
+                    item.result = 1
+                elif over==True and actual_score>=teaser:
+                    if actual_score >= regular:
+                        did_they_do_it = "✅✅✅"
+                        item.result = 2
+                    elif actual_score >= teaser:
+                        did_they_do_it = "✅"
+                        item.result = 1
+                else:
+                    did_they_do_it = "❌"
+                    item.result = 0
+            else:
+                did_they_do_it = "Didn't play"
+                actual_score = "NA"
+
+            
+
+            string_output = f"{name} {regular} {prop} Actual: {actual_score}"
+            string_output = string_output.ljust(40,'.')
+
+            print(f"{string_output} {did_they_do_it}")
+        db.session.commit()
 
 
 
 
-    #https://sportsbook-nash.draftkings.com/api/sportscontent/dkusny/v1/leagues/42133/categories/1189
-    #https://sportsbook-nash.draftkings.com/api/sportscontent/dkusny/v1/leagues/42133/categories/1189/subcategories/12040
+
+    # https://sportsbook-nash.draftkings.com/api/sportscontent/dkusny/v1/leagues/42133/categories/1189
+    # https://sportsbook-nash.draftkings.com/api/sportscontent/dkusny/v1/leagues/42133/categories/1189/subcategories/12040
+
+    # blocks
+
+    # https://sportsbook-nash.draftkings.com/api/sportscontent/dkusny/v1/leagues/42133/categories/1679
 
 
     # Open the JSON file
@@ -50,25 +131,31 @@ with app.app_context():
     # Load the JSON data into a Python dictionary
         data = json.load(f)
 
+    with open('draftkings_blocks.json') as g:
+        block_data = json.load(g)
+
         # Now you can work with the data
 
     odds_list = []
     odds_objects = data["selections"]
+    blocks_objects = block_data["selections"]
 
     for item in odds_objects:
         name = item["participants"][0]["name"]
         over_under = item["label"]
         odds = item["displayOdds"]["decimal"]
         line = item["points"]
+        if name.split(' ')[-1]=="(F)":
+            name = (' ').join(name.split(' ')[0:-1])
 
 
 
-        player = {"name":name,"line":line}
+        player = {"name":name,"shots":line,"blocks":10}
 
         if over_under=="Over":
-            player["Over"]=odds
+            player["over"]=odds
         else:
-            player["Under"]=odds
+            player["under"]=odds
 
 
         if len(odds_list)>0:
@@ -80,6 +167,19 @@ with app.app_context():
             odds_list.append(player) 
         else:
             [guy for guy in odds_list if guy["name"]==name][0][over_under]=odds
+    for item in blocks_objects:
+        name = item["participants"][0]["name"]
+        blocks = item["points"]
+
+        if name in [hockier["name"] for hockier in odds_list]:
+            for hockey_man in odds_list:
+                if hockey_man["name"]==name:
+                    hockey_man["blocks"]=blocks
+                    hockey_man["over"]=1
+        else:
+            odds_list.append({"name":name,"blocks":blocks,"shots":10})
+
+        
     
     # for odd in odds_list:
     #     print(odd)
@@ -113,43 +213,12 @@ with app.app_context():
     # ipdb.set_trace()
 
 
-    # schedule_page_url = f"https://www.hockey-reference.com/leagues/NHL_2025_games.html"
-    # schedule_page = requests.get(schedule_page_url, headers = {'User-Agent':"Mozilla/5.0"})
-    # schedule = BeautifulSoup(schedule_page.text, 'html.parser')
-
-    # monthly_games = schedule.select('tbody')[0].select('tr')
-
-    # todays_games = []
-    # list_of_teams = []
-    # for game in monthly_games:
-    #     date = datetime.strptime(game.select('th')[0].text,"%Y-%m-%d").date()
-    #     if date == current_date:
-    #         game_data = {}
-    #         game_data["home"] = game.select('td')[3].text
-    #         game_data["away"] = game.select('td')[1].text
-    #         list_of_teams.append(game.select('td')[3].text)
-    #         list_of_teams.append(game.select('td')[1].text)
-    #         my_time = game.select('td')[0].text
-    #         empty_time = my_time.replace('PM','').replace('AM','').replace(":","").replace(' ','')
-        
-    #         if my_time[-2]=='P':
-    #             empty_time = str(int(empty_time)+1200)
-    #             if int(empty_time) >= 2400:
-    #                 empty_time = "0"+empty_time[2:4]
-    #         if int(empty_time)<1000:
-    #             empty_time = '0'+empty_time
-
-    #         time = datetime.strptime(empty_time,"%H%M").time()
-    #         game_data["time"]=time
-
-    #         todays_games.append(game_data)
-
-
-    schedule_page_url = f"https://www.hockey-reference.com/leagues/NHL_2023_games.html"
+    schedule_page_url = f"https://www.hockey-reference.com/leagues/NHL_2025_games.html"
     schedule_page = requests.get(schedule_page_url, headers = {'User-Agent':"Mozilla/5.0"})
     schedule = BeautifulSoup(schedule_page.text, 'html.parser')
 
     monthly_games = schedule.select('tbody')[0].select('tr')
+
     latest_game_date = Game.query.all()[-1].date.date()
     tomorrow = latest_game_date
 
@@ -161,11 +230,10 @@ with app.app_context():
     while len(games)==0:
         tomorrow = tomorrow + timedelta(1)
         games = [game for game in monthly_games if datetime.strptime(game.select('th')[0].text,"%Y-%m-%d").date()==tomorrow]
-        
-    players = []
+
     for game in monthly_games:
         date = datetime.strptime(game.select('th')[0].text,"%Y-%m-%d").date()
-        if date == tomorrow:
+        if date == current_date:
             game_data = {}
             game_data["home"] = game.select('td')[3].text
             game_data["away"] = game.select('td')[1].text
@@ -173,63 +241,119 @@ with app.app_context():
             list_of_teams.append(game.select('td')[1].text)
             my_time = game.select('td')[0].text
             empty_time = my_time.replace('PM','').replace('AM','').replace(":","").replace(' ','')
-        
+
+
             if my_time[-2]=='P':
-                if (my_time[0]=="1") and my_time[1]=="2":
-                    empty_time = str(int(empty_time))
+                if empty_time == '1200':
+                    empty_time = '1200'
                 else:
                     empty_time = str(int(empty_time)+1200)
-                    
                 if int(empty_time) >= 2400:
                     empty_time = "0"+empty_time[2:4]
             if int(empty_time)<1000:
                 empty_time = '0'+empty_time
+                
 
-            the_time = datetime.strptime(empty_time,"%H%M").time()
-            game_data["time"]=the_time
+            time = datetime.strptime(empty_time,"%H%M")
+            game_data["time"]=time
 
             todays_games.append(game_data)
 
-            url_ending = game.select('a')[0].get("href")
 
-            # ipdb.set_trace()
+    # schedule_page_url = f"https://www.hockey-reference.com/leagues/NHL_2025_games.html"
+    # schedule_page = requests.get(schedule_page_url, headers = {'User-Agent':"Mozilla/5.0"})
+    # schedule = BeautifulSoup(schedule_page.text, 'html.parser')
 
-            box_score_url = f"https://www.hockey-reference.com{url_ending}"
+    # monthly_games = schedule.select('tbody')[0].select('tr')
+    
 
-            box_score = requests.get(box_score_url, headers={'User-Agent':"Mozilla/5.0"})
+    # todays_games = []
+    # list_of_teams = []
 
-            box_score_data = BeautifulSoup(box_score.content.decode('utf-8'), "html.parser")
-            with open("output.html", "w") as file:
-                file.write(box_score_data.decode('utf-8'))
+    # games = []
+
+    # while len(games)==0:
+    #     tomorrow = tomorrow + timedelta(1)
+    #     games = [game for game in monthly_games if datetime.strptime(game.select('th')[0].text,"%Y-%m-%d").date()==tomorrow]
+        
+    players = []
+    # for game in monthly_games:
+    #     date = datetime.strptime(game.select('th')[0].text,"%Y-%m-%d").date()
+    #     if date == tomorrow:
+    #         game_data = {}
+    #         game_data["home"] = game.select('td')[3].text
+    #         game_data["away"] = game.select('td')[1].text
+    #         list_of_teams.append(game.select('td')[3].text)
+    #         list_of_teams.append(game.select('td')[1].text)
+    #         my_time = game.select('td')[0].text
+    #         empty_time = my_time.replace('PM','').replace('AM','').replace(":","").replace(' ','')
+        
+    #         if my_time[-2]=='P':
+    #             if (my_time[0]=="1") and my_time[1]=="2":
+    #                 empty_time = str(int(empty_time))
+    #             else:
+    #                 empty_time = str(int(empty_time)+1200)
+                    
+    #             if int(empty_time) >= 2400:
+    #                 empty_time = "0"+empty_time[2:4]
+    #         if int(empty_time)<1000:
+    #             empty_time = '0'+empty_time
+
+    #         the_time = datetime.strptime(empty_time,"%H%M").time()
+    #         game_data["time"]=the_time
+
+    #         todays_games.append(game_data)
+
+    #         url_ending = game.select('a')[0].get("href")
 
 
-            away_players = box_score_data.select('tbody')[0].select('tr')
-            home_players = box_score_data.select('tbody')[2].select('tr')
+    #         home_team_last_game = Game.query.filter(Game.home==game_data["home"]).all()[-1]
+    #         away_team_last_game = Game.query.filter(Game.visitor==game_data["away"]).all()[-1]
 
            
 
-            for index, player in enumerate(away_players[0:-1]):
-                name = unidecode(player.select('td')[0].text)
-                # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
-                shots = int(player.select('td')[13].text)
-                player = {"name":name,"shots":shots}
-                players.append(player)
+    #         home_players = [guy for guy in home_team_last_game.players if guy.team==game_data["home"]]
+    #         away_players = [guy for guy in away_team_last_game.players if guy.team==game_data["away"]]
 
-            for index, player in enumerate(home_players[0:-1]):
-                name = unidecode(player.select('td')[0].text)
-                # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
-                shots = int(player.select('td')[13].text)
-                player = {"name":name,"shots":shots}
-                players.append(player)
+    #         for player in home_players:
+    #             players.append({"name":player.player.name, "shots":0})
+    #         for player in away_players:
+    #             players.append({"name":player.player.name, "shots":0})
 
-            print(url_ending)
-            time.sleep(3.2)
+            # box_score_url = f"https://www.hockey-reference.com{url_ending}"
+
+            # box_score = requests.get(box_score_url, headers={'User-Agent':"Mozilla/5.0"})
+
+            # box_score_data = BeautifulSoup(box_score.content.decode('utf-8'), "html.parser")
+            # with open("output.html", "w") as file:
+            #     file.write(box_score_data.decode('utf-8'))
+
+
+            # away_players = box_score_data.select('tbody')[0].select('tr')
+            # home_players = box_score_data.select('tbody')[2].select('tr')
+
+           
+
+            # for index, player in enumerate(away_players[0:-1]):
+            #     name = unidecode(player.select('td')[0].text)
+            #     # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
+            #     shots = int(player.select('td')[13].text)
+            #     player = {"name":name,"shots":shots}
+            #     players.append(player)
+
+            # for index, player in enumerate(home_players[0:-1]):
+            #     name = unidecode(player.select('td')[0].text)
+            #     # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
+            #     shots = int(player.select('td')[13].text)
+            #     player = {"name":name,"shots":shots}
+            #     players.append(player)
+
+            # print(game_data)
+            # time.sleep(3.2)
 
 
     for equipo in todays_games:
         print(equipo)
-
-    # ipdb.set_trace()
 
 
 
@@ -320,14 +444,16 @@ with app.app_context():
 
     team_mults = []
     for team in list_of_teams:
-        team_games = [game for game in Game.query.all() if game.visitor==team or game.home==team][-50:]
+        team_games = [game for game in Game.query.all() if game.visitor==team or game.home==team][-20:]
         
         for game in team_games:
             #these are multipliers against the team so do the opposite home/away
             #they will tell how well teams do against the team
             shots = []
             blocks = []
+            blocks_against = []
             corsi = []
+            corsi_against = []
             hits = []
             goals = []
             team_penalty_mins = []
@@ -337,8 +463,11 @@ with app.app_context():
             if game.home==team:
 
                 blocks.append(game.away_even_blocks+game.away_pp_blocks)
+                #how often they block the other team
+                blocks_against.append(game.home_even_blocks+game.home_pp_blocks)
+                corsi_against.append(game.home_even_corsi+game.home_pp_corsi)
                 corsi.append(game.away_even_corsi+game.away_pp_corsi)
-                hits.append(game.away_even_corsi+game.away_pp_corsi)
+                hits.append(game.away_even_hits+game.away_pp_hits)
                 goals.append(game.away_score)
                 team_penalty_mins.append(game.home_penalty_mins)
                 opposing_penalty_mins.append(game.away_penalty_mins)
@@ -354,8 +483,10 @@ with app.app_context():
             else:
 
                 blocks.append(game.home_even_blocks+game.home_pp_blocks)
+                blocks_against.append(game.away_even_blocks+game.away_pp_blocks)
+                corsi_against.append(game.away_even_corsi+game.away_pp_corsi)
                 corsi.append(game.home_even_corsi+game.home_pp_corsi)
-                hits.append(game.home_even_corsi+game.home_pp_corsi)
+                hits.append(game.home_even_hits+game.home_pp_hits)
                 goals.append(game.home_score)
                 team_penalty_mins.append(game.away_penalty_mins)
                 opposing_penalty_mins.append(game.home_penalty_mins)
@@ -370,6 +501,8 @@ with app.app_context():
 
 
         #edit these
+        team_blocks_against = mean(blocks_against)
+        team_corsi_against = mean(corsi_against)
         team_block_avg = mean(blocks)
         team_corsi_avg = mean(corsi)
         team_hits_avg = mean(hits)
@@ -380,10 +513,12 @@ with app.app_context():
         opposing_penalty_mins_avg = mean(opposing_penalty_mins)
         team_shots_per_corsi_avg = mean(shots_per_corsi)
 
+        highest_value = 1.3
         
 
-        team_mults.append({"team":team,"team_block_mult":avg_even_blocks/team_block_avg,"team_corsi_mult":team_corsi_avg/avg_even_corsi,"team_hits_mult":avg_even_hits/team_hits_avg,"team_goals_mult":team_goals_avg/avg_goals,"team_penalty_mins_mult":team_penalty_mins_avg/avg_penalty_minutes,"opposing_team_penalty_mins_mult":opposing_penalty_mins_avg/avg_penalty_minutes,"team_shots_per_corsi_mult":team_shots_per_corsi_avg/avg_shots_per_corsi})
+        team_mults.append({"team":team,"team_blocks_against_mult":((avg_even_blocks+avg_pp_blocks)/team_blocks_against) if ((avg_even_blocks+avg_pp_blocks)/team_blocks_against)<highest_value else highest_value,"team_block_mult":(team_block_avg/(avg_even_blocks+avg_pp_blocks)) if (team_block_avg/(avg_even_blocks+avg_pp_blocks)) < highest_value else highest_value,"team_corsi_against_mult":team_corsi_against/(avg_even_corsi+avg_pp_corsi) if team_corsi_against/(avg_even_corsi+avg_pp_corsi) < highest_value else highest_value,"team_corsi_mult":team_corsi_avg/(avg_even_corsi+avg_pp_corsi) if team_corsi_avg/(avg_even_corsi+avg_pp_corsi) < highest_value else highest_value,"team_hits_mult":(avg_even_hits+avg_pp_hits)/team_hits_avg if (avg_even_hits+avg_pp_hits)/team_hits_avg < highest_value else highest_value,"team_goals_mult":team_goals_avg/avg_goals if team_goals_avg/avg_goals < highest_value else highest_value,"team_penalty_mins_mult":team_penalty_mins_avg/avg_penalty_minutes if team_penalty_mins_avg/avg_penalty_minutes<highest_value else highest_value,"opposing_team_penalty_mins_mult":opposing_penalty_mins_avg/avg_penalty_minutes if opposing_penalty_mins_avg/avg_penalty_minutes < highest_value else highest_value,"team_shots_per_corsi_mult":team_shots_per_corsi_avg/avg_shots_per_corsi if team_shots_per_corsi_avg/avg_shots_per_corsi < highest_value else highest_value})
 
+    #team blocks against will be higher if 
 
     # for item in team_mults:
     #     print(item)
@@ -398,8 +533,10 @@ with app.app_context():
 
     # for player in odds_list:
     player_estimate_list = []
+
+    sorted_odds_list = sorted(odds_list,key=itemgetter('name'))
     
-    for player in players:
+    for player in sorted_odds_list:
 
         #things to add
             #elevation games
@@ -413,9 +550,29 @@ with app.app_context():
 
         if len(player_object_list)>0:
             player_object=player_object_list[0]
+
         else:
-            print(f'{player["name"]} not in database')
-            continue
+            last_name = player["name"].split(' ')[-1]
+            first_two_letters = player["name"].split(' ')[0][0:2]
+            new_player_object_list = [guy for guy in Player.query.all() if guy.name.split(' ')[-1]==last_name]
+            # if player["name"]=="Matthew Boldy":
+            #     ipdb.set_trace()
+            
+            
+            if len(new_player_object_list)==1:
+                player_object = new_player_object_list[0]
+            elif len(new_player_object_list)>1:
+                newer_player_object_list = [guy for guy in new_player_object_list if guy.name.split(' ')[0][0:2]==first_two_letters]
+                if len(newer_player_object_list)==1:
+                    player_object = newer_player_object_list[0]
+                else:
+                    print(f'{player["name"]} not in database')
+                    continue
+
+            else:
+                print(f'{player["name"]} not in database')
+                continue
+            
 
         games_to_use = player_object.games
       
@@ -424,9 +581,6 @@ with app.app_context():
 
         if len(games_to_use)<10:
             continue
-        if player["name"]=="Sebastian Aho":
-            continue
-
         # if (games_to_use[-5].game.home!=player_team) and (games_to_use[-5].game.visitor!=player_team):
         #     continue
 
@@ -443,6 +597,7 @@ with app.app_context():
             team_mult_object = [item for item in team_mults if item["team"]==other_team][0]
         except NameError:
             continue
+
 
         if game["home"]==player_team:
             home_or_away = True
@@ -513,7 +668,7 @@ with app.app_context():
             # recent_even_corsi_list.append(game.even_corsi/non_penalty_mins if non_penalty_mins>0 else 0)
             # recent_pp_corsi_list.append(game.pp_corsi/penalty_mins if penalty_mins>0 else 0)
 
-            # recent_games.append(game)
+            recent_games.append(game)
 
 
         # recent_even_corsi = mean(recent_even_corsi_list)
@@ -580,12 +735,12 @@ with app.app_context():
 
         #CHANGE THIS WHEN READY TO TEST CURRENT GAMES
 
-        games_on_day = [game for game in player_object.games if game.game.date.weekday()==tomorrow.weekday()][-15:]
+        games_on_day = [game for game in player_object.games if game.game.date.weekday()==current_date.weekday()][-15:]
 
-
-        high_time = datetime.strptime((f'{player_game["time"].hour+1}{player_game["time"].minute}'),'%H%M').time()
+    
+        high_time = (player_game["time"]+timedelta(minutes=30)).time()
         try:
-            low_time = datetime.strptime((f'{player_game["time"].hour-1}{player_game["time"].minute}'),'%H%M').time()
+            low_time = (player_game["time"]-timedelta(minutes=30)).time()
         except ValueError:
             ipdb.set_trace()
 
@@ -640,50 +795,121 @@ with app.app_context():
             #games_at_time
             #injury_games
 
-        if len(recent_games)>1:
-            print(f'Recent: {round(stdev([game.shots for game in recent_games]),4)}')
-        if len(opponent_games)>1:
-            print(f'Opponent: {round(stdev([game.shots for game in opponent_games]),4)}')
-        if len(home_away_games)>1:
-            print(f'Home_Away: {round(stdev([game.shots for game in home_away_games]),4)}')
-        if len(games_on_day)>1:
-            print(f'On Day: {round(stdev([game.shots for game in games_on_day]),4)}')
-        if len(rest_days)>1:
-            print(f'Rest: {round(stdev([game.shots for game in rest_days]),4)}')
-        if len(games_at_time)>1:
-            print(f'At Time: {round(stdev([game.shots for game in games_at_time]),4)}')
-        if len(injury_games)>1:
-            print(f'Injuries: {round(stdev([game.shots for game in injury_games]),4)}')
-        print('\n')
+        # if len(recent_games)>1:
+        #     print(f'Recent: {round(stdev([game.even_corsi+game.pp_corsi for game in recent_games]),4)}')
+        # if len(opponent_games)>1:
+        #     print(f'Opponent: {round(stdev([game.even_corsi+game.pp_corsi for game in opponent_games]),4)}')
+        # if len(home_away_games)>1:
+        #     print(f'Home_Away: {round(stdev([game.even_corsi+game.pp_corsi for game in home_away_games]),4)}')
+        # if len(games_on_day)>1:
+        #     print(f'On Day: {round(stdev([game.even_corsi+game.pp_corsi for game in games_on_day]),4)}')
+        # if len(rest_days)>1:
+        #     print(f'Rest: {round(stdev([game.even_corsi+game.pp_corsi for game in rest_days]),4)}')
+        # if len(games_at_time)>1:
+        #     print(f'At Time: {round(stdev([game.even_corsi+game.pp_corsi for game in games_at_time]),4)}')
+        # if len(injury_games)>1:
+        #     print(f'Injuries: {round(stdev([game.even_corsi+game.pp_corsi for game in injury_games]),4)}')
+        # print('\n')
         
 
 
-        how_many_games = 2
+        how_many_games = 4
 
-        # game.even_corsi+game.pp_corsi
+        game.even_corsi+game.pp_corsi
 
-        stdev_array = [{"name":"opponent_games","array":opponent_games,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in opponent_games]) if len(opponent_games)>how_many_games else 500},
-                {"name":"recent_games","array":recent_games,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in recent_games]) if len(recent_games)>how_many_games else 500},
-                {"name":"home_away_games","array":home_away_games,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in home_away_games]) if len(home_away_games)>how_many_games else 500},
-                {"name":"rest_days","array":rest_days,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in rest_days]) if len(rest_days)>how_many_games else 500},
-                {"name":"games_on_day","array":games_on_day,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in games_on_day]) if len(games_on_day)>how_many_games else 500},
-                {"name":"games_at_time","array":games_at_time,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in games_at_time]) if len(games_at_time)>how_many_games else 500},
-                {"name":"injury_games","array":injury_games,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in injury_games]) if len(injury_games)>how_many_games else 500}
+        try:
+            stdev_array = [{"name":"opponent_games","array":opponent_games,"stdev":stdev([(game.shot_stdev) for game in opponent_games]) if len(opponent_games)>how_many_games else 500},
+                {"name":"recent_games","array":recent_games,"stdev":stdev([(game.shot_stdev) for game in recent_games]) if len(recent_games)>how_many_games else 500},
+                {"name":"home_away_games","array":home_away_games,"stdev":stdev([(game.shot_stdev) for game in home_away_games]) if len(home_away_games)>how_many_games else 500},
+                {"name":"rest_days","array":rest_days,"stdev":stdev([(game.shot_stdev) for game in rest_days]) if len(rest_days)>how_many_games else 500},
+                {"name":"games_on_day","array":games_on_day,"stdev":stdev([(game.shot_stdev) for game in games_on_day]) if len(games_on_day)>how_many_games else 500},
+                {"name":"games_at_time","array":games_at_time,"stdev":stdev([(game.shot_stdev) for game in games_at_time]) if len(games_at_time)>how_many_games else 500},
+                {"name":"injury_games","array":injury_games,"stdev":stdev([(game.shot_stdev) for game in injury_games]) if len(injury_games)>how_many_games else 500}
+                ]
+        except TypeError:
+            continue
+
+        # stdev_array = [{"name":"opponent_games","array":opponent_games,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in opponent_games]) if len(opponent_games)>how_many_games else 500},
+        #         {"name":"recent_games","array":recent_games,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in recent_games]) if len(recent_games)>how_many_games else 500},
+        #         {"name":"home_away_games","array":home_away_games,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in home_away_games]) if len(home_away_games)>how_many_games else 500},
+        #         {"name":"rest_days","array":rest_days,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in rest_days]) if len(rest_days)>how_many_games else 500},
+        #         {"name":"games_on_day","array":games_on_day,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in games_on_day]) if len(games_on_day)>how_many_games else 500},
+        #         {"name":"games_at_time","array":games_at_time,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in games_at_time]) if len(games_at_time)>how_many_games else 500},
+        #         {"name":"injury_games","array":injury_games,"stdev":stdev([(game.even_corsi+game.pp_corsi) for game in injury_games]) if len(injury_games)>how_many_games else 500}
+        #         ]
+
+        blocks_stdev_array = [{"name":"opponent_games","array":opponent_games,"stdev":stdev([(game.pp_blocks+game.even_blocks) for game in opponent_games]) if len(opponent_games)>how_many_games else 500},
+                {"name":"recent_games","array":recent_games,"stdev":stdev([(game.pp_blocks+game.even_blocks) for game in recent_games]) if len(recent_games)>how_many_games else 500},
+                {"name":"home_away_games","array":home_away_games,"stdev":stdev([(game.pp_blocks+game.even_blocks) for game in home_away_games]) if len(home_away_games)>how_many_games else 500},
+                {"name":"rest_days","array":rest_days,"stdev":stdev([(game.pp_blocks+game.even_blocks) for game in rest_days]) if len(rest_days)>how_many_games else 500},
+                {"name":"games_on_day","array":games_on_day,"stdev":stdev([(game.pp_blocks+game.even_blocks) for game in games_on_day]) if len(games_on_day)>how_many_games else 500},
+                {"name":"games_at_time","array":games_at_time,"stdev":stdev([(game.pp_blocks+game.even_blocks) for game in games_at_time]) if len(games_at_time)>how_many_games else 500},
+                {"name":"injury_games","array":injury_games,"stdev":stdev([(game.pp_blocks+game.even_blocks) for game in injury_games]) if len(injury_games)>how_many_games else 500}
                 ]
 
 
+
+        #blocks
+        sorted_stdev_array = sorted(blocks_stdev_array,key=itemgetter('stdev'))
+        lowest_block_stdev = sorted_stdev_array[0]["stdev"]
+
+        new_stdev_array = []
+        block_arrays = 0
+
+        for item in sorted_stdev_array:
+            if item["stdev"]-0.23<lowest_block_stdev:
+                new_stdev_array.extend(item["array"])
+                block_arrays+=1
+        
+
+        full_games = set(new_stdev_array)
+        uniq_full_blocks_games = list(full_games)
+
+
+        full_even_blocks_list = []
+        full_pp_blocks_list = []
+        high_minutes = average_minutes+3
+        low_minutes = average_minutes-3
+
+        for game in uniq_full_blocks_games:
+            
+            if low_minutes < game.minutes < high_minutes:
+                if game.home==True:
+                    non_penalty_mins = 60-game.game.away_penalty_mins
+                    penalty_mins = game.game.away_penalty_mins
+                else:
+                    non_penalty_mins = 60-game.game.home_penalty_mins
+                    penalty_mins = game.game.home_penalty_mins
+
+                full_even_blocks_list.append(game.even_blocks if non_penalty_mins>0 else 0)
+                full_pp_blocks_list.append(game.pp_blocks if penalty_mins>0 else 0)
+
+        
+
+        if len(full_even_blocks_list)==0 or len(full_pp_blocks_list)==0:
+            continue
+
+        average_even_blocks = mean(full_even_blocks_list)
+        average_pp_blocks = mean(full_pp_blocks_list)
+
+        total_even_blocks = mean([average_even_blocks,median(full_even_blocks_list)])
+        total_pp_blocks = mean([average_pp_blocks,median(full_pp_blocks_list)])
+
+
+
+
+
+        #shots
         sorted_stdev_array = sorted(stdev_array,key=itemgetter('stdev'))
-        lowest_stdev = sorted_stdev_array[0]["stdev"]
+        lowest_stdev = sorted_stdev_array[0]
 
         new_stdev_array = []
         arrays = 0
 
         for item in sorted_stdev_array:
-            if item["stdev"]-0.17<lowest_stdev:
+            if item["stdev"]-0.5<lowest_stdev["stdev"]:
                 new_stdev_array.extend(item["array"])
                 arrays+=1
-
-        print(arrays)
         
 
 
@@ -723,11 +949,12 @@ with app.app_context():
                 full_even_corsi_list.append(game.even_corsi/non_penalty_mins if non_penalty_mins>0 else 0)
                 full_pp_corsi_list.append(game.pp_corsi/penalty_mins if penalty_mins>0 else 0)
 
-                average_even_corsi = mean(full_even_corsi_list)
-                average_pp_corsi = mean(full_pp_corsi_list)
-
         if len(full_even_corsi_list)==0 or len(full_pp_corsi_list)==0:
             continue
+
+        average_even_corsi = mean(full_even_corsi_list)
+        average_pp_corsi = mean(full_pp_corsi_list)
+
 
         total_even_corsi = mean([average_even_corsi,median(full_even_corsi_list)])
         total_pp_corsi = mean([average_pp_corsi,median(full_pp_corsi_list)])
@@ -770,14 +997,16 @@ with app.app_context():
             continue
         new_pp_multiplier = team_mult_object["team_penalty_mins_mult"]*penalties_drawn
 
+        #*team_mult_object["team_hits_mult"]
+        corsi_estimate = (((total_pp_corsi*new_pp_multiplier)+(total_even_corsi))*team_mult_object["team_blocks_against_mult"]*team_mult_object["team_corsi_mult"])*60
 
-        corsi_estimate = (((total_pp_corsi*new_pp_multiplier)+(total_even_corsi))*team_mult_object["team_hits_mult"]*team_mult_object["team_block_mult"]*team_mult_object["team_corsi_mult"])*60
+        blocks_estimate = ((total_pp_blocks*new_pp_multiplier)+total_even_blocks)*team_mult_object["team_corsi_mult"]*team_mult_object["team_block_mult"]*team_mult_object["team_corsi_against_mult"]
         
 
         sog_estimate = corsi_estimate*(average_shot_per_corsi)
 
 
-        player_estimate_list.append({"name":player["name"],"team":player_team,"estimate":round(sog_estimate,2),"corsi_estimate":round(corsi_estimate,2),"actual":player["shots"],"corsi_per":round(average_shot_per_corsi,3),"ranker":sog_estimate+(average_shot_per_corsi)})
+        player_estimate_list.append({"name":player["name"],"odds":player["over"],"team":player_team,"low_array":lowest_stdev["name"],"low_stdev":lowest_stdev["stdev"],"arrays":arrays,"low_blocks_stdev":lowest_block_stdev,"estimate":round(sog_estimate,2),"blocks_estimate":blocks_estimate,"block_line":player["blocks"],"corsi_estimate":round(corsi_estimate,2),"actual":player["shots"],"corsi_per":round(average_shot_per_corsi,3),"ranker":sog_estimate+(average_shot_per_corsi),"difference":sog_estimate-player["shots"],"blocks_diff":blocks_estimate/player["blocks"]})
 
         # if player["name"]=="Adam Boqvist":
         #     ipdb.set_trace()
@@ -786,40 +1015,105 @@ with app.app_context():
 
 
 
-    sorted_player_estimate_list = sorted(player_estimate_list,key=itemgetter('estimate'))
+
+    sorted_player_estimate_list = sorted(player_estimate_list,key=itemgetter('difference'))
     sorted_player_estimate_list.reverse()
 
-    team_from_player_list = []
-    final_player_list = []
-    for thing in sorted_player_estimate_list:
-        if thing["team"] not in team_from_player_list and thing["corsi_per"]>0.59:
-            team_from_player_list.append(thing["team"])
-            final_player_list.append(thing)
-    # final_player_list = sorted_player_estimate_list
+    final_blocks_list = sorted(player_estimate_list,key=itemgetter('blocks_diff'))
+    final_blocks_list.reverse()
+
+    # show_them_all = sorted(player_estimate_list,key=itemgetter('name'))
+    # for item in show_them_all:
+    #     name = item["name"]
+    #     low_stdev = item["low_stdev"]
+    #     shots = item["estimate"]
+    #     blocks = item["block_line"]
+    #     blocks_low_stdev = item["low_blocks_stdev"]
+
+    #     print(f'{name}: {round(low_stdev,3)}, {shots} shots, {blocks} blocks @ {blocks_low_stdev}')
+    # print('\n')
+
+    # team_from_player_list = []
+    # final_player_list = []
+    # for thing in sorted_player_estimate_list:
+    #     if thing["team"] not in team_from_player_list and thing["corsi_per"]>0.474:
+    #         team_from_player_list.append(thing["team"])
+    #         final_player_list.append(thing)
+    final_player_list = sorted_player_estimate_list
+
+    print('\n')
+
+    for thing in [bet for bet in FinalBet.query.all() if bet.date.date()==current_date]:
+        db.session.delete(thing)
 
     for index,item in enumerate(final_player_list):
-        # if item["corsi_per"] > 0.6 or (index==1 and item["estimate"] > 1.75*(sorted_player_estimate_list[1])):
-        name=item["name"]
-        team=item["team"]
-        estimate = str(item["estimate"])
-        corsi_estimate = str(item["corsi_estimate"])
-        actual = str(item["actual"])
-        corsi_per = str(item["corsi_per"])
+        if item["actual"] != 10:
+            name=item["name"]
+            team=item["team"]
+            estimate = str(item["estimate"])
+            corsi_estimate = str(item["corsi_estimate"])
+            actual = str(item["actual"])
+            arrays = item["arrays"]
+            corsi_per = str(item["corsi_per"])
+            stdev = str(round(item["low_stdev"],3))
+            low_array = item["low_array"]
+            over = item["estimate"] > item["actual"]
+            odds = item["odds"]
 
-        first = name.ljust(25,' ')
-        fifth = team.ljust(25,' ')
-        second = estimate.ljust(5,' ')
-        third = actual.ljust(3,' ')
-        fourth = corsi_estimate.ljust(3,' ')
+            first = name.ljust(25,' ')
+            fifth = team.ljust(25,' ')
+            second = estimate.ljust(5,' ')
+            third = actual.ljust(3,' ')
+            fourth = corsi_estimate.ljust(3,' ')
+            if item["low_stdev"]<2 and (item["estimate"] > item["actual"]+2.2 or item["estimate"] < item["actual"]-1.5) and arrays>4:
+            # if item["low_stdev"]<20 and (item["estimate"] > item["actual"]+2.4 or item["estimate"] < item["actual"]-1) :
+                print(f"{first} {fifth}, Estimate: {second}, Line {third} (Corsi Estimate: {fourth}, Shot Per Corsi: {corsi_per}, StDev: {stdev} with {low_array}, Arrays: {arrays}, Odds: {odds})")
+                
+                new_bet = FinalBet(name=name,
+                prop="shots",
+                line=actual,
+                date=current_date,
+                daily_index=index,
+                over=over,
+                low_stdev =stdev,
+                arrays=arrays)
+
+                db.session.add(new_bet)
+
+    print('\n')
+
+    for index,item in enumerate(final_blocks_list):
+        if item["block_line"] !=10:
+            name=item["name"]
+            team=item["team"]
+            blocks=item["block_line"]
+            estimate = str(item["blocks_estimate"])
+            over = item["blocks_estimate"] > item["block_line"]
+            
+
+            first = name.ljust(25,' ')
+            fifth = team.ljust(25,' ')
+            second = estimate.ljust(5,' ')
 
 
-        print(f"{first} {fifth}, Estimate: {second}, Actual {third} (Corsi Estimate: {fourth}, Shot Per Corsi: {corsi_per})")
+            if item["low_blocks_stdev"]<1.42 and (item["blocks_estimate"] > item["block_line"]+0.75 or item["blocks_estimate"] < item["block_line"]-1):
+                print(f"{first} {fifth}, Estimate: {second}, Line: {blocks}")
+                new_bet = FinalBet(name=name,
+                prop="blocks",
+                line=blocks,
+                date=current_date,
+                daily_index=index,
+                over=over)
 
-    if sorted_player_estimate_list[0]["estimate"]>1.8*sorted_player_estimate_list[1]["estimate"]:
-        print(f'\nRecommendation: {sorted_player_estimate_list[0]["name"]}')
-    else:
-        print(f'\nRecommendation: {sorted_player_estimate_list[0]["name"]} and {sorted_player_estimate_list[1]["name"]}')
+                db.session.add(new_bet)
+    db.session.commit()
 
+    # if final_player_list[0]["estimate"]>1.8*final_player_list[1]["estimate"]:
+    #     print(f'\nRecommendation: {sorted_player_estimate_list[0]["name"]}')
+    # else:
+    #     print(f'\nRecommendation: {sorted_player_estimate_list[0]["name"]} and {sorted_player_estimate_list[1]["name"]}')
+    print(f'{len(todays_games)} games')
+    ipdb.set_trace()
 
 
 

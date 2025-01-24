@@ -1,14 +1,14 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 from app import app
 from urllib.request import Request, urlopen
 from pprint import pprint
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import db, Game, Player, Goalie, GoalieGame, PlayerGame
+from models import db, Game, Player, Goalie, GoalieGame, PlayerGame, FinalBet
 from unidecode import unidecode
-import time
 import requests
+import time
 import ipdb
 
 
@@ -17,62 +17,72 @@ with app.app_context():
 
 
 
-    players = [player for player in Player.query.all()]
-    goalies = [goalie for goalie in Goalie.query.all()]
+    bets = FinalBet.query.all()
 
-    for player in players:
-        games = player.games
-        for index,game in enumerate(games):
-            game_team = game.team
-            if index==0 or index == 1:
-                try:
-                    next_game = games[index+1]
-                except IndexError:
-                    continue
-                try:
-                    game_after = games[index+2]
-                except IndexError:
-                    continue
-                if ((next_game.game.home==game_team or next_game.game.visitor==game_team) and (game_after.game.home==game_team or game_after.game.visitor==game_team)):
-                    continue
+    current_date = bets[0].date.date()
+
+
+    i=0
+    while i <1:
+        todays = [bet for bet in bets if bet.date.date()==current_date][0:5]
+
+
+
+
+        print(f'\n{current_date}')
+        for thing in todays:
+
+            player_who_played = Player.query.filter(Player.name==thing.name).first()
+
+
+            try:
+                yesterdays_game = player_who_played.games[-1]
+            except AttributeError:
+
+                last_name = name.split(' ')[-1]
+                first_two_letters = name.split(' ')[0][0:2]
+                new_player_object_list = [guy for guy in Player.query.all() if guy.name.split(' ')[-1]==last_name]
+                # if player["name"]=="Matthew Boldy":
+                #     ipdb.set_trace()
+                
+                
+                if len(new_player_object_list)==1:
+                    player_who_played = new_player_object_list[0]
+                elif len(new_player_object_list)>1:
+                    newer_player_object_list = [guy for guy in new_player_object_list if guy.name.split(' ')[0][0:2]==first_two_letters]
+                    if len(newer_player_object_list)==1:
+                        player_who_played = newer_player_object_list[0]
+                    else:
+                        print(f'{player["name"]} not in database')
+                        continue
+
                 else:
-                    game.team=game.game.home
-            elif index==len(games)-1 or index==len(games)-2:
-                try:
-                    two_games_ago = games[index-2]
-                except IndexError:
+                    print(f'{player["name"]} not in database')
                     continue
-                try:
-                    last_game = games[index-1]
-                except IndexError:
-                    continue
-                if ((two_games_ago.game.home==game_team or two_games_ago.game.visitor==game_team) and (last_game.game.home==game_team or last_game.game.visitor==game_team)):
-                    continue
-                else:
-                    game.team=game.game.home
+
+            try: 
+                shots = [game for game in player_who_played.games if game.game.date.date()==current_date][0].shots
+            except IndexError:
+                shots = 0
+
+            name = thing.name
+            regular = thing.line
+            prop = thing.prop
+            arrays = thing.arrays
+            low_stdev = thing.low_stdev
+            if thing.result==0:
+                result = "❌"
+            elif thing.result==1:
+                result = "✅"
             else:
-                try:
-                    two_games_ago = games[index-2]
-                except IndexError:
-                    continue
-                try:
-                    previous_game = games[index-1]
-                except IndexError:
-                    continue
-                try:
-                    next_game = games[index+1]
-                except IndexError:
-                    continue
-                try:
-                    game_after = games[index+2]
-                except IndexError:
-                    continue
-                if ((next_game.game.home==game_team or next_game.game.visitor==game_team) and (game_after.game.home==game_team or game_after.game.visitor==game_team)) or ((two_games_ago.game.home==game_team or two_games_ago.game.home==game_team) and (previous_game.game.home==game_team or previous_game.game.visitor==game_team)):
-                    continue
-                else:
-                    game.team=game.game.home
+                result = "✅✅✅"
+            string_output = f"{name} {regular} {prop}"
+            string_output = string_output.ljust(40,'.')
 
-    ipdb.set_trace()
+            print(f"{string_output} {result}, Actual: {shots}, (Arrays: {arrays}, Stdev: {low_stdev})")
+        current_date = current_date+timedelta(1)
+        if datetime.now().date()==current_date:
+            i=1
 
 
     # for goalie in goalies:

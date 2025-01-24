@@ -44,8 +44,8 @@ class Game(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
-    players = db.relationship('PlayerGame', back_populates="game")
-    goalies = db.relationship('GoalieGame', back_populates="game")
+    players = db.relationship('PlayerGame', back_populates="game", cascade='all, delete-orphan')
+    goalies = db.relationship('GoalieGame', back_populates="game", cascade='all, delete-orphan')
     # teams = db.relationship('Team', backref=backref('game'))
 
     def __repr__(self):
@@ -64,6 +64,7 @@ class Player(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     games = db.relationship('PlayerGame', back_populates='player')
+    final_bets = db.relationship('FinalBet', back_populates='player')
 
     
 
@@ -123,6 +124,7 @@ class PlayerGame(db.Model, SerializerMixin):
     pp_assists = db.Column(db.Integer)
     penalty_minutes = db.Column(db.Integer)
     home = db.Column(db.Boolean)
+    shot_stdev = db.Column(db.Integer)
 
     pp_corsi = db.Column(db.Integer)
     even_corsi = db.Column(db.Integer)
@@ -173,6 +175,33 @@ class GoalieGame(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f'<{self.goalie.name} on {self.game.date}>'
+
+
+class FinalBet(db.Model, SerializerMixin):
+    # __tablename__ = 'players'
+
+    # serialize_rules = ('-game.players', '-team.players',)
+    
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    prop = db.Column(db.String)
+    line = db.Column(db.String)
+    date = db.Column(db.DateTime)
+    daily_index = db.Column(db.Integer)
+    result = db.Column(db.Integer)
+    over = db.Column(db.Boolean)
+    arrays = db.Column(db.Integer)
+    low_stdev = db.Column(db.Float)
+
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+
+    player_id = db.Column('player_id',db.Integer, db.ForeignKey('player.id'))
+    player = db.relationship('Player',back_populates='final_bets')
+    
+
+    def __repr__(self):
+        return f'<{self.name}>'
 
 # class Team(db.Model, SerializerMixin):
 #     __tablename__ = 'teams'

@@ -1,0 +1,608 @@
+{
+  "sports": [
+    {
+      "id": "8"
+    }
+  ],
+  "leagues": [
+    {
+      "id": "42133",
+      "name": "NHL",
+      "sportId": "8",
+      "sortOrder": 4850,
+      "tags": [
+        "FeaturedSubcategory",
+        "MatchTracker",
+        "PrePack",
+        "SGP",
+        "Scoreboard",
+        "SgpDynamicOdds",
+        "Stats",
+        "YourBetEligible",
+        "Featured",
+        "FavoriteableFromPage"
+      ],
+      "isTeamSwap": true,
+      "featured": true,
+      "media": [
+        {
+          "providerName": "BetRadarStats",
+          "mediaType": "Stats"
+        },
+        {
+          "providerName": "BetRadarV3",
+          "mediaType": "MatchTracker"
+        },
+        {
+          "providerName": "BetRadarV3",
+          "mediaType": "Scoreboard"
+        }
+      ]
+    }
+  ],
+  "events": [],
+  "markets": [],
+  "selections": [],
+  "categories": [
+    {
+      "id": 496,
+      "name": "Game Lines",
+      "sortOrder": 496,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 1259,
+      "name": "Quick Hits",
+      "sortOrder": 549
+    },
+    {
+      "id": 1190,
+      "name": "Goalscorer",
+      "sortOrder": 550,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 1189,
+      "name": "Shots on Goal",
+      "sortOrder": 552,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 1675,
+      "name": "Points",
+      "sortOrder": 554,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 1676,
+      "name": "Assists",
+      "sortOrder": 559,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 1064,
+      "name": "Goalie Props",
+      "sortOrder": 592
+    },
+    {
+      "id": 548,
+      "name": "Periods",
+      "sortOrder": 690,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 1193,
+      "name": "Team Totals",
+      "sortOrder": 790,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 549,
+      "name": "Game Props",
+      "sortOrder": 898,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 547,
+      "name": "Game Props (60 Min)",
+      "sortOrder": 1004
+    },
+    {
+      "id": 554,
+      "name": "Game Parlays",
+      "sortOrder": 1069
+    },
+    {
+      "id": 552,
+      "name": "Team Futures",
+      "sortOrder": 1179
+    },
+    {
+      "id": 592,
+      "name": "Awards",
+      "sortOrder": 1187
+    },
+    {
+      "id": 1160,
+      "name": "Season Specials",
+      "sortOrder": 1449
+    }
+  ],
+  "subcategories": [
+    {
+      "id": 13422,
+      "categoryId": 552,
+      "name": "Champion",
+      "componentId": 29,
+      "sortOrder": 4748,
+      "tags": []
+    },
+    {
+      "id": 9236,
+      "categoryId": 552,
+      "name": "Conference Winner",
+      "componentId": 29,
+      "sortOrder": 4981,
+      "tags": []
+    },
+    {
+      "id": 9034,
+      "categoryId": 552,
+      "name": "Division Winner",
+      "componentId": 29,
+      "sortOrder": 4982,
+      "tags": []
+    },
+    {
+      "id": 9033,
+      "categoryId": 552,
+      "name": "Winner Specials",
+      "componentId": 29,
+      "sortOrder": 13581,
+      "tags": []
+    },
+    {
+      "id": 10285,
+      "categoryId": 1064,
+      "name": "Shutout",
+      "componentId": 29,
+      "sortOrder": 10251,
+      "tags": []
+    },
+    {
+      "id": 11001,
+      "categoryId": 549,
+      "name": "Correct Score (Incl OT)",
+      "componentId": 202,
+      "sortOrder": 4777,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 11002,
+      "categoryId": 549,
+      "name": "Winning Margin (Incl OT)",
+      "componentId": 202,
+      "sortOrder": 11461,
+      "tags": []
+    },
+    {
+      "id": 11289,
+      "categoryId": 549,
+      "name": "Total Goals Odd/Even",
+      "componentId": 29,
+      "sortOrder": 13772,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 11493,
+      "categoryId": 548,
+      "name": "Alt Total Goals - Listed Period",
+      "componentId": 29,
+      "sortOrder": 4756,
+      "tags": []
+    },
+    {
+      "id": 12040,
+      "categoryId": 1189,
+      "name": "Shots on Goal O/U",
+      "componentId": 8,
+      "sortOrder": 12136,
+      "tags": []
+    },
+    {
+      "id": 12055,
+      "categoryId": 1193,
+      "name": "Team Total Goals",
+      "componentId": 29,
+      "sortOrder": 12017,
+      "tags": [
+        "Featured",
+        "SGP"
+      ]
+    },
+    {
+      "id": 12057,
+      "categoryId": 1193,
+      "name": "Both Teams To Score",
+      "componentId": 29,
+      "sortOrder": 12019,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 12059,
+      "categoryId": 1193,
+      "name": "Both Teams to Score 2+ Goals",
+      "componentId": 29,
+      "sortOrder": 12021,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 12131,
+      "categoryId": 548,
+      "name": "Goal In First 10 - Listed Period",
+      "componentId": 29,
+      "sortOrder": 4836,
+      "tags": []
+    },
+    {
+      "id": 13192,
+      "categoryId": 496,
+      "name": "Alternate Total",
+      "componentId": 240,
+      "sortOrder": 4994,
+      "tags": []
+    },
+    {
+      "id": 13750,
+      "categoryId": 1259,
+      "name": "Goal in First Ten",
+      "componentId": 29,
+      "sortOrder": 12991,
+      "tags": [
+        "Featured"
+      ]
+    },
+    {
+      "id": 13808,
+      "categoryId": 1190,
+      "name": "Goalscorer",
+      "componentId": 18,
+      "sortOrder": 12005,
+      "tags": [
+        "Featured",
+        "SGP"
+      ]
+    },
+    {
+      "id": 13810,
+      "categoryId": 548,
+      "name": "Odd/Even - Listed Period",
+      "componentId": 29,
+      "sortOrder": 13770,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 13811,
+      "categoryId": 549,
+      "name": "To Go to OT",
+      "componentId": 29,
+      "sortOrder": 13151,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 13812,
+      "categoryId": 549,
+      "name": "Win From Behind",
+      "componentId": 29,
+      "sortOrder": 13153,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 14497,
+      "categoryId": 1190,
+      "name": "Last Goalscorer",
+      "componentId": 204,
+      "sortOrder": 15318,
+      "tags": []
+    },
+    {
+      "id": 15268,
+      "categoryId": 547,
+      "name": "Winning Margin (Excl OT)",
+      "componentId": 202,
+      "sortOrder": 15225,
+      "tags": []
+    },
+    {
+      "id": 15515,
+      "categoryId": 1190,
+      "name": "Player Goal Milestones",
+      "componentId": 29,
+      "sortOrder": 15317,
+      "tags": []
+    },
+    {
+      "id": 15516,
+      "categoryId": 1189,
+      "name": "Shots on Goal",
+      "componentId": 29,
+      "sortOrder": 12002,
+      "tags": [
+        "Featured",
+        "SGP"
+      ]
+    },
+    {
+      "id": 16212,
+      "categoryId": 1675,
+      "name": "Points",
+      "componentId": 29,
+      "sortOrder": 16170,
+      "tags": [
+        "Featured"
+      ]
+    },
+    {
+      "id": 16213,
+      "categoryId": 1675,
+      "name": "Points O/U",
+      "componentId": 8,
+      "sortOrder": 16169,
+      "tags": [
+        "Featured",
+        "SGP"
+      ]
+    },
+    {
+      "id": 16214,
+      "categoryId": 1676,
+      "name": "Assists",
+      "componentId": 29,
+      "sortOrder": 16172,
+      "tags": [
+        "Featured"
+      ]
+    },
+    {
+      "id": 16215,
+      "categoryId": 1676,
+      "name": "Assists O/U",
+      "componentId": 8,
+      "sortOrder": 16171,
+      "tags": [
+        "Featured",
+        "SGP"
+      ]
+    },
+    {
+      "id": 16270,
+      "categoryId": 1064,
+      "name": "Shutout (Excl OT)",
+      "componentId": 29,
+      "sortOrder": 16227,
+      "tags": []
+    },
+    {
+      "id": 4525,
+      "categoryId": 496,
+      "name": "Game",
+      "componentId": 210,
+      "sortOrder": 4520,
+      "tags": [
+        "Featured",
+        "SGP"
+      ]
+    },
+    {
+      "id": 4761,
+      "categoryId": 548,
+      "name": "1st Period",
+      "componentId": 210,
+      "sortOrder": 4738,
+      "tags": [
+        "Featured",
+        "SGP"
+      ]
+    },
+    {
+      "id": 4999,
+      "categoryId": 496,
+      "name": "60 Min Line",
+      "componentId": 11,
+      "sortOrder": 4713,
+      "tags": [
+        "Featured"
+      ]
+    },
+    {
+      "id": 5070,
+      "categoryId": 549,
+      "name": "Race to X Goals",
+      "componentId": 30,
+      "sortOrder": 4741,
+      "tags": [
+        "Featured",
+        "SGP"
+      ]
+    },
+    {
+      "id": 5719,
+      "categoryId": 554,
+      "name": "1st Period/End of Regulation",
+      "componentId": 204,
+      "sortOrder": 6171,
+      "tags": []
+    },
+    {
+      "id": 5861,
+      "categoryId": 547,
+      "name": "Correct Score (Excl OT)",
+      "componentId": 202,
+      "sortOrder": 4827,
+      "tags": [
+        "Featured"
+      ]
+    },
+    {
+      "id": 5879,
+      "categoryId": 548,
+      "name": "Correct Score - Listed Period",
+      "componentId": 202,
+      "sortOrder": 4755,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 6270,
+      "categoryId": 548,
+      "name": "Team Totals - Listed Period",
+      "componentId": 29,
+      "sortOrder": 4739,
+      "tags": [
+        "Featured",
+        "SGP"
+      ]
+    },
+    {
+      "id": 6271,
+      "categoryId": 548,
+      "name": "Both Teams to Score - 1st Period",
+      "componentId": 29,
+      "sortOrder": 4776,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 6306,
+      "categoryId": 548,
+      "name": "Highest Scoring Period",
+      "componentId": 12,
+      "sortOrder": 5873,
+      "tags": []
+    },
+    {
+      "id": 6320,
+      "categoryId": 549,
+      "name": "First/Last to Score",
+      "componentId": 30,
+      "sortOrder": 4740,
+      "tags": [
+        "Featured",
+        "SGP"
+      ]
+    },
+    {
+      "id": 6353,
+      "categoryId": 496,
+      "name": "Tie No Bet",
+      "componentId": 12,
+      "sortOrder": 4737,
+      "tags": []
+    },
+    {
+      "id": 6978,
+      "categoryId": 548,
+      "name": "Period Winner - 3 Way",
+      "componentId": 30,
+      "sortOrder": 5214,
+      "tags": [
+        "SGP"
+      ]
+    },
+    {
+      "id": 7863,
+      "categoryId": 554,
+      "name": "Moneyline/Total Goals",
+      "componentId": 204,
+      "sortOrder": 4767,
+      "tags": []
+    },
+    {
+      "id": 7864,
+      "categoryId": 554,
+      "name": "Puck Line/Total Goals",
+      "componentId": 204,
+      "sortOrder": 5713,
+      "tags": []
+    },
+    {
+      "id": 13150,
+      "categoryId": 1160,
+      "name": "Player Specials",
+      "componentId": 204,
+      "sortOrder": 11491,
+      "tags": []
+    },
+    {
+      "id": 13406,
+      "categoryId": 552,
+      "name": "Regular Season Points",
+      "componentId": 29,
+      "sortOrder": 7359,
+      "tags": []
+    },
+    {
+      "id": 7474,
+      "categoryId": 592,
+      "name": "Rocket Richard",
+      "componentId": 29,
+      "sortOrder": 4984,
+      "tags": []
+    },
+    {
+      "id": 16012,
+      "categoryId": 552,
+      "name": "Season Series Matchups",
+      "componentId": 30,
+      "sortOrder": 15969,
+      "tags": []
+    },
+    {
+      "id": 9232,
+      "categoryId": 552,
+      "name": "To Make the Playoffs",
+      "componentId": 29,
+      "sortOrder": 9923,
+      "tags": []
+    }
+  ],
+  "subscriptionPartials": {
+    "league-events-42133": {
+      "entity": "events",
+      "query": "$filter=leagueId eq '42133'&$orderBy=startEventDate asc",
+      "includeMarkets": "$filter=tags/all(t: t ne 'SportcastBetBuilder') and clientMetadata/categoryId eq '1679'"
+    }
+  }
+}

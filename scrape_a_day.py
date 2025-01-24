@@ -6,6 +6,7 @@ from urllib.request import Request, urlopen
 from pprint import pprint
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from statistics import mean,mode,median,stdev
 from models import db, Game, Player, Goalie, GoalieGame, PlayerGame
 from unidecode import unidecode
 import time
@@ -18,15 +19,20 @@ import codecs
 with app.app_context():
 
 
+
+    def scrape_a_day(day_of_games):
     # for year in years:
 
     #years = ["2022","2023"]
     # years = ["2018","2019","2020","2021","2022"]
-    years = ["2023"]
 
-    for year in years:   
+        if day_of_games.month>8:
+            year = day_of_games.year+1
 
-        
+        else:
+            year = day_of_games.year
+
+            
         # headers = {'user-agent': 'my-app/0.0.1'}
         html = requests.get(f"https://www.hockey-reference.com/leagues/NHL_{year}_games.html", headers={'User-Agent':"Mozilla/5.0"})
         # date = html.select('div.ScheduleDay_sd_GFE_w')[0]
@@ -192,7 +198,10 @@ with app.app_context():
         
 
 
-                for index, player in enumerate(away_players[0:-1]):
+                for index, player in enumerate(away_players):
+                    shifts = int(player.select('td')[15].text)
+                    if shifts < 5:
+                        continue
                     name = unidecode(player.select('td')[0].text)
                     # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
                     goals = int(player.select('td')[1].text)
@@ -209,7 +218,7 @@ with app.app_context():
 
 
                     try:
-                        skater_advanced_even = away_advanced_even[index]
+                        skater_advanced_even = [skater_man for skater_man in away_advanced_even if unidecode(skater_man.select('th')[0].text)==name][0]
                     except IndexError:
                         break
 
@@ -222,7 +231,7 @@ with app.app_context():
                     except ValueError:
                         even_blocks=0
 
-                    skater_advanced_pp = away_advanced_pp[index]
+                    skater_advanced_pp = [skater_man for skater_man in away_advanced_pp if unidecode(skater_man.select('th')[0].text)==name][0]
 
                     pp_corsi = int(skater_advanced_pp.select('td')[0].text)
                     pp_on_ice_corsi = int(skater_advanced_pp.select('td')[1].text)
@@ -241,6 +250,29 @@ with app.app_context():
                     away_pp_hits += pp_hits 
                     away_pp_blocks += pp_blocks
                     away_penalty_mins += penalty_minutes
+
+                    if (name in [person.name for person in Player.query.all()]):
+                        if name=="Sebastian Aho" and team=="Carolina Hurricanes":
+                            assoc_player = Player.query.filter(Player.name=="Sebastian Aho (CAR)").first()
+                        else:
+                            assoc_player = Player.query.filter(Player.name == name).first()
+                    else:
+                        assoc_player = Player(name=name)
+                        db.session.add(assoc_player)
+                        # db.session.commit()
+
+                    games_for_avg = [game.pp_corsi + game.even_corsi for game in assoc_player.games]
+
+                    if len(games_for_avg)==0:
+                        average = 2
+                    else:
+                        average = mean(games_for_avg)
+
+                    if (even_corsi + pp_corsi) > average+2.1:
+                        shot_stdev = average*1.6
+                    else:
+                        shot_stdev = even_corsi + pp_corsi
+
                 
 
 
@@ -264,16 +296,12 @@ with app.app_context():
                         pp_on_ice_corsi=pp_on_ice_corsi,
                         pp_on_ice_against_corsi=pp_on_ice_against_corsi,
                         pp_hits=pp_hits,
-                        pp_blocks=pp_blocks
+                        pp_blocks=pp_blocks,
+                        shot_stdev=shot_stdev
                     )
 
 
-                    if (name in [person.name for person in Player.query.all()]):
-                        assoc_player = Player.query.filter(Player.name == name).first()
-                    else:
-                        assoc_player = Player(name=name)
-                        db.session.add(assoc_player)
-                        # db.session.commit()
+                    
 
                     player_game.player = assoc_player
                     player_game.game = match
@@ -281,7 +309,10 @@ with app.app_context():
                     # db.session.commit()
 
 
-                for index, player in enumerate(home_players[0:-1]):
+                for index, player in enumerate(home_players):
+                    shifts = int(player.select('td')[15].text)
+                    if shifts < 5:
+                        continue
                     name = unidecode(player.select('td')[0].text)
                     # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
                     goals = int(player.select('td')[1].text)
@@ -297,7 +328,7 @@ with app.app_context():
                     minutes = (int(minutes_string[-2:])/60)+int(minutes_string[-5:2].replace(':',''))
 
                     try:
-                        skater_advanced_even = home_advanced_even[index]
+                        skater_advanced_even = [skater_man for skater_man in home_advanced_even if unidecode(skater_man.select('th')[0].text)==name][0]
                     except IndexError:
                         break
 
@@ -310,7 +341,7 @@ with app.app_context():
                     except ValueError:
                         even_blocks=0
 
-                    skater_advanced_pp = home_advanced_pp[index]
+                    skater_advanced_pp = [skater_man for skater_man in home_advanced_pp if unidecode(skater_man.select('th')[0].text)==name][0]
 
                     pp_corsi = int(skater_advanced_pp.select('td')[0].text)
                     pp_on_ice_corsi = int(skater_advanced_pp.select('td')[1].text)
@@ -329,6 +360,29 @@ with app.app_context():
                     home_pp_hits += pp_hits 
                     home_pp_blocks += pp_blocks
                     home_penalty_mins += penalty_minutes
+
+
+                    if (name in [person.name for person in Player.query.all()]):
+                        if name=="Sebastian Aho" and team=="Carolina Hurricanes":
+                            assoc_player = Player.query.filter(Player.name=="Sebastian Aho (CAR)").first()
+                        else:
+                            assoc_player = Player.query.filter(Player.name == name).first()
+                    else:
+                        assoc_player = Player(name=name)
+                        db.session.add(assoc_player)
+                        # db.session.commit()
+
+
+                    if len(games_for_avg)==0:
+                        average = 2
+                    else:
+                        average = mean(games_for_avg)
+
+                    if (even_corsi + pp_corsi) > average+2.1:
+                        shot_stdev = average*1.6
+                    else:
+                        shot_stdev = even_corsi + pp_corsi
+
 
                     
                     player_game = PlayerGame(
@@ -351,17 +405,13 @@ with app.app_context():
                         pp_on_ice_corsi=pp_on_ice_corsi,
                         pp_on_ice_against_corsi=pp_on_ice_against_corsi,
                         pp_hits=pp_hits,
-                        pp_blocks=pp_blocks
+                        pp_blocks=pp_blocks,
+                        shot_stdev=shot_stdev
                     )
 
 
 
-                    if (name in [person.name for person in Player.query.all()]):
-                        assoc_player = Player.query.filter(Player.name == name).first()
-                    else:
-                        assoc_player = Player(name=name)
-                        db.session.add(assoc_player)
-                        # db.session.commit()
+                    
 
                     player_game.player = assoc_player
                     player_game.game = match

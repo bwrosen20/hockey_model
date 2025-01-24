@@ -1,5 +1,5 @@
 # from turtle import ht
-from datetime import datetime
+import datetime
 from bs4 import BeautifulSoup
 from app import app
 from urllib.request import Request, urlopen
@@ -22,7 +22,7 @@ with app.app_context():
 
     #years = ["2022","2023"]
     # years = ["2018","2019","2020","2021","2022"]
-    years = ["2023","2024"]
+    years = ["2025"]
 
     for year in years:   
 
@@ -32,6 +32,14 @@ with app.app_context():
         # date = html.select('div.ScheduleDay_sd_GFE_w')[0]
         doc = BeautifulSoup(html.text, 'html.parser')
         rows = doc.select('tbody')[0].select('tr')
+
+        if year=="2020":
+
+            new_date = datetime.date(2019,7,12)
+
+            games_in_year = len([game for game in Game.query.all() if game.date.date()>new_date])
+
+            rows = rows[games_in_year:]
 
         # rows.pop(0)
 
@@ -70,7 +78,7 @@ with app.app_context():
 
             site_time = box_score_data.select('.scorebox')[0].select(".scorebox_meta")[0].select('div')[0].text
 
-            real_time = datetime.strptime(site_time,"%B %d, %Y, %I:%M %p")
+            real_time = datetime.datetime.strptime(site_time,"%B %d, %Y, %I:%M %p")
             location = box_score_data.select('.scorebox')[0].select(".scorebox_meta")[0].select('div')[2].text.replace('Arena: ','')
 
             
@@ -183,7 +191,13 @@ with app.app_context():
     
 
 
-            for index, player in enumerate(away_players[0:-1]):
+            for index, player in enumerate(away_players):
+                try:
+                    shifts = int(player.select('td')[15].text)
+                except ValueError:
+                    shifts = 0
+                if shifts < 5:
+                    continue
                 name = unidecode(player.select('td')[0].text)
                 # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
                 goals = int(player.select('td')[1].text)
@@ -200,7 +214,7 @@ with app.app_context():
 
 
                 try:
-                    skater_advanced_even = away_advanced_even[index]
+                    skater_advanced_even = [skater_man for skater_man in away_advanced_even if unidecode(skater_man.select('th')[0].text)==name][0]
                 except IndexError:
                     break
 
@@ -213,7 +227,7 @@ with app.app_context():
                 except ValueError:
                     even_blocks=0
 
-                skater_advanced_pp = away_advanced_pp[index]
+                skater_advanced_pp = [skater_man for skater_man in away_advanced_pp if unidecode(skater_man.select('th')[0].text)==name][0]
 
                 pp_corsi = int(skater_advanced_pp.select('td')[0].text)
                 pp_on_ice_corsi = int(skater_advanced_pp.select('td')[1].text)
@@ -272,7 +286,13 @@ with app.app_context():
                 # db.session.commit()
 
 
-            for index, player in enumerate(home_players[0:-1]):
+            for index, player in enumerate(home_players):
+                try:
+                    shifts = int(player.select('td')[15].text)
+                except ValueError:
+                    shifts = 0
+                if shifts < 5:
+                    continue
                 name = unidecode(player.select('td')[0].text)
                 # name = name.replace('AP','o').replace('S1/2','y').replace('A!A!','as').replace('A%?','a').replace('dA','dre').replace('ASS','c').replace('A"',"e").replace('i!','a').replace('tA','te').replace('A$?','a').replace('i(c)','e').replace('i!','a').replace('lA','li').replace('A(c)','e').replace('rAA!','rna').replace('AA','ci').replace('mA','mi').replace('A 1/4','u').replace('A,','o').replace('A!A','ac').replace('A 3/4','z').replace('A ','S').replace('A!','a').replace('AY=','a').replace('A 1/2','y').replace('eAA!','era').replace('A<<','u').replace('i 1/4','u').replace('aA','ar')
                 goals = int(player.select('td')[1].text)
@@ -288,7 +308,7 @@ with app.app_context():
                 minutes = (int(minutes_string[-2:])/60)+int(minutes_string[-5:2].replace(':',''))
 
                 try:
-                    skater_advanced_even = home_advanced_even[index]
+                    skater_advanced_even = [skater_man for skater_man in home_advanced_even if unidecode(skater_man.select('th')[0].text)==name][0]
                 except IndexError:
                     break
 
@@ -301,7 +321,7 @@ with app.app_context():
                 except ValueError:
                     even_blocks=0
 
-                skater_advanced_pp = home_advanced_pp[index]
+                skater_advanced_pp = [skater_man for skater_man in home_advanced_pp if unidecode(skater_man.select('th')[0].text)==name][0]
 
                 pp_corsi = int(skater_advanced_pp.select('td')[0].text)
                 pp_on_ice_corsi = int(skater_advanced_pp.select('td')[1].text)
